@@ -6,7 +6,77 @@
 </head>
 <body>
 
+<form action="gettest.php" method="get">
 
+    <fieldset>
+
+        <legend>HTTP 통신 GET 메소드 테스트</legend>
+        <h2>내용을 채우세요</h2>
+        <label>이름 : <input type="text" name="name"></label>
+        <br/>
+        <label>비밀번호 : <input type="password" name="pass"></label>
+        <br/>
+        <hr/>
+        <input type="submit" value="작성 완료" name="">
+        <input type="reset" value="초기화" name="">
+
+    </fieldset>
+
+</form>
+
+
+<form action="posttest.php" method="post">
+
+    <fieldset>
+        <legend>input &amp; post test</legend>
+        <h2>내용을 또 채우세요 포스트 테스트용입니다.</h2>
+        <p>
+            gender :
+            <label><input type="radio" name="rg1" value="male">male</label>
+            <label><input type="radio" name="rg1" value="female">female</label>
+
+        </p>
+
+        <p>
+            fruits :
+            <label><input type="checkbox" name="fruits[]" value="apple">Apple</label>
+            <label><input type="checkbox" name="fruits[]" value="banana">Banana</label>
+            <label><input type="checkbox" name="fruits[]" value="orange">Orange</label>
+
+
+        </p>
+        <p>
+
+            Message :
+
+            <textarea cols="30" rows="2" name="msg"></textarea>
+        </p>
+
+        <div>
+
+            <select name="sel">
+                <optgroup label="자동차 브랜드">
+
+                    <option value="hyundei">현대</option>
+                    <option value="kia">기아</option>
+                    <option value="아우디">아우디</option>
+                    <option value="벤츠">벤츠</option>
+                </optgroup>
+            </select>
+
+        </div>
+
+        <br/>
+        <div>
+            <input type="submit" value="전송">
+            <input type="reset" value="취소">
+        </div>
+
+        <hr/>
+
+        <input type="image" src="img/title_logo.png" width="200">
+    </fieldset>
+</form>
 
 </body>
 </html>
