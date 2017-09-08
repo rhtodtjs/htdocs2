@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form>
+
+    <!--날짜관련된 작업이요-->
+
+    <p>date:<input type="date" name="date"></p>
+    <p>datetime:<input type="datetime" name="datetime"></p>
+    <p>datetime-local<input type="datetime-local" name="datetime-local"></p>
+    <p>month:<input name="month" type="month"></p>
+    <p>week:<input type="week" name="week"></p>
+
+
+    <hr/>
+
+    <p>color: <input type="color" name="color"></p>
+    <p>email: <input type="email" name="email" required></p>
+
+
+    <p>tel : <input type="tel" name="tel"></p>
+    <p>search : <input type="search" name="search"></p>
+
+
+    <p>number : <input type="number" name="number" max="50" min="20" step="2"></p>
+
+    <p>range : <input type="range" name="" min="30" max="60" step="2" value="36"></p>
+
+    <P>URL : <input type="url" name="" required></P>
+
+    <hr/>
+    <input type="submit" value="다했다">
+
+
+</form>
+
+
+<hr/>
+<hr/>
+
+<form>
+
+    <input type="text" placeholder="뭘써보든가말든가.." required>
+    <input type="text" readonly>
+    <input type="text" autofocus="바보">
+    <br/> <br/>
+    <textarea cols="40" rows="10">
+
+
+    </textarea>
+
+    <p><input type="text" size="10"></p>
+
+
+    <br/><br/><br/>
+
+    <P><input type="text" autocomplete list="mylist"></P>
+
+    <datalist id="mylist">
+        <option value="apple"></option>
+        <option value="한글"></option>
+        <option value="검은사막"></option>
+    </datalist>
+
+    <hr/>
+
+    <input type="submit">
+
+</form>
+
+<!--정규식 연습-->
+
+<hr/>
+<hr/>
+<hr/>
+<hr/>
+<hr/>
+<hr/>
+<hr/>
+
+<form>
+
+    <!--영문자 1개이상이고 숫자는 0개 이상이고 @있어야하고 그뒤에 영문자하나이상이어야해-->
+    이메일 : <input type="text" required pattern="[a-zA-z]+[0-9]*@[a-zA-Z]+">
+    <br/>
+    <input type="submit">
+
+</form>
+
+<br/><br/><br/><br/><br/><br/>
+
+<form>
+
+    <!--첫 숫자는 2~3개 , 두번째는 3~4개 , 세번째는 4개 -->
+    전화번호 : <input type="text" required pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4,5}">
+    <br/>
+    <input type="submit">
+
+</form>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<form action="aaa.php" method="get">
+
+    <input type="text" name="name">
+    <input type="hidden" name="secret" value="hello">
+    <input type="submit">
+
+</form>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+</body>
+</html>

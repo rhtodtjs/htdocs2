@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<fieldset>
+
+    <legend>카드 정보 입력</legend>
+
+    <ol>
+        <li>
+            <fieldset>
+                <legend>카드 타입</legend>
+                <div>
+                    <ol>
+                        <li><label><input type="radio" name="rg" value="visa">VISA</label></li>
+                        <li><label><input type="radio" name="rg" value="AmEx">AmEx</label></li>
+                        <li><label><input type="radio" name="rg" value="MasterCard">MasterCard</label></li>
+
+                    </ol>
+
+
+                </div>
+
+
+            </fieldset>
+
+        </li>
+
+        <li>
+            <p>
+                카드 번호 : <input type="number" required>
+            </p>
+        </li>
+        <li>
+            <p>
+                CRC 번호 : <input type="number" min="0" max="999" required>
+            </p>
+        </li>
+        <li>
+            <p>
+                카드 소유자 이름 : <input type="text" required placeholder="이름을 제대로 쓰라">
+            </p>
+        </li>
+
+    </ol>
+
+    <hr/>
+
+    <input type="submit" value="구매">
+
+
+</fieldset>
+
+</body>
+</html>
