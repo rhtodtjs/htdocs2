@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Test</title>
+
+    <style type="text/css">
+
+        table.table01 {
+            border: 2px solid;
+            border-collapse: collapse;
+        }
+
+        table th{
+            border-bottom: 3px double red;
+        }
+
+        table td {
+            text-align: center;
+        }
+
+        table td,th {
+          border: 1px solid;
+        }
+
+        table th {
+            background-color: green;
+            color: white;
+        }
+
+        tr:nth-child(2n+1){
+            background-color: yellow;
+        }
+
+        td:nth-child(2n){
+            background-color: lightblue;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<table class="table01">
+
+    <tr>
+
+        <th width="20%">이름</th>
+        <th width="30%">점수</th>
+    </tr>
+
+    <tr>
+
+        <td>김밥</td>
+        <td>100</td>
+    </tr>
+    <tr>
+
+        <td>국밥</td>
+        <td>96</td>
+    </tr>
+    <tr>
+
+        <td>영희</td>
+        <td>66</td>
+    </tr>
+    <tr>
+
+        <td>철수</td>
+        <td>92</td>
+    </tr>
+</table>
+
+</body>
+</html>

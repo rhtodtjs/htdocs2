@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>CSS TEST 2</title>
+
+    <style type="text/css">
+        /*p {*/
+        /*color: #ff8800;*/
+        /*}*/
+
+        /*p {*/
+        /*font-size: 1.1em;*/
+        /*}*/
+        /*p{*/
+        /*font-weight:bold;*/
+        /*font-style: italic;*/
+        /*}*/
+
+        /*p {*/
+        /*font-family: serif;*/
+        /*}*/
+
+        /*p {*/
+        /*font-family: sans-serif;*/
+        /*}*/
+
+        /*p {*/
+        /*font-family: fantasy;*/
+        /*}*/
+
+        /*p {*/
+        /*font-family: cursive*/
+        /*}*/
+
+        /*p {*/
+        /*font-family: monospace;*/
+        /*}*/
+
+        /*p {*/
+        /*font-family: "나눔고딕", sans-serif;*/
+        /*}*/
+
+        @font-face {
+            font-family: "MyFont";
+            src: url("NanumGothicExtraBold.ttf");
+        }
+
+        p {
+            font-family: MyFont, serif;
+        }
+
+        p {
+            font: italic bold 1.3em MyFont, serif, sans;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        P.notice {
+            text-align: justify;
+        }
+
+        p.notice {
+            font-size: 1.0em;
+            color: #9e0b0f;
+        }
+
+        p {
+            text-transform: capitalize;
+            text-decoration: underline;
+        }
+
+        /*내어쓰기*/
+
+        p.notice {
+            text-indent: 50px;
+        }
+
+        p.notice {
+            text-shadow: 5px 3px 5px orange;
+            letter-spacing: 5px;
+        }
+
+        a[href] {
+            text-decoration: none;
+        }
+
+        .black {
+            color: blueviolet;
+            font-size: 1.3em;
+        }
+
+        p.notice {
+            column-count: 2;
+            column-gap: 50px;
+            column-rule: 4px dotted green;
+        }
+    </style>
+</head>
+<body>
+
+<p>abcdefg</p>
+<p>한글은ㅇ ㅓ떠하리..?</p>
+
+
+<p class="notice">
+    안녕하세요.The MMORPG, <span class="black">검은사막</span> 입니다.
+
+
+    9월 6일(수) 검은사막 최신 버전 업데이트 사항을 안내 드립니다.
+    해당 업데이트는 접속 중인 경우 게임 종료 후 업데이트를 받으시면 적용됩니다.
+
+
+    아래 내용을 참고하셔서 게임 서비스 이용에 불편이 없으시기 바랍니다.
+
+    vndtlsrnjs
+
+    【콘텐츠】
+
+    ● 간헐적으로 야만의 균열 단계가 비정상적으로 완료되는 현상이 수정되었습니다.
+    - 해당 현상 악용 여부에 대해 조사를 진행한 결과 해당 현상을 고의로 악용한 기록은 확인되지 않았으며,
+
+    획득한 야만의 균열 보상은 9/14(목) 정기 점검 시 회수 조치될 예정입니다.
+    - 획득한 금괴를 은화로 환전하신 경우, 해당 금액의 은화가 회수됩니다.
+    - 보상으로 획득한 금괴 또는 은화를 획득하고 있지 않을 경우, 이후에 획득한 은화에서 자동으로 회수되도록 조치됩니다
+
+
+    【시스템】
+    ● 자동 이동으로 말 조련 중 인터넷 연결이 비정상적으로 중단되어 자동 재접속되었을 경우, 말 조련이 자동으로 진행되지 않는 현상이 수정되었습니다.
+    ● 서버 이동 시 간헐적으로 캐릭터 선택창으로 이동되는 현상이 수정되었습니다
+
+    <span class="black">검은사막</span>에서 더욱 즐거운 시간을 보내시기 바랍니다.
+
+    고맙습니다.
+</p>
+
+<a href="01_ex.css">링크 요소..</a>
+
+</body>
+</html>

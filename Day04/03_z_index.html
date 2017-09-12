@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Z Index Test</title>
+
+    <style type="text/css">
+
+        #aa {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 0px;
+            left: 0px;
+            background-color: blue;
+            z-index: 10;
+        }
+
+        #bb {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 30px;
+            left: 30px;
+            background-color: gold;
+            z-index: 5;
+        }
+
+        #cc {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 60px;
+            left: 60px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="aa">box 1</div>
+<div id="bb">box 2</div>
+<div id="cc">box 2</div>
+
+</body>
+</html>

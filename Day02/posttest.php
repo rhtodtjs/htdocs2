@@ -20,6 +20,7 @@ echo "</p>";
 
 $msg = nl2br($msg);
 
+
 echo "<p>$msg</p>";
 echo "<p>$select</p>";
 

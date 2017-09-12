@@ -1,0 +1,53 @@
+p.kk {
+    color: red;
+}
+
+a:link {
+    color: red;
+}
+
+a:hover {
+    color: blue;
+}
+
+a:active {
+    color: black;
+}
+
+a:visited {
+    color: chartreuse;
+    font-size: 50px;
+}
+
+img:hover {
+    width: 300px;
+    height: 200px;
+}
+
+h2 {
+    background-color: #a776d5;
+    font-family: Calibri;
+    color: #9e0b0f
+}
+
+#para {
+    color: aqua;
+    border: 2px solid chocolate;
+    font-style: oblique;
+}
+
+.fuck {
+    color: darkcyan;
+}
+
+.rody {
+    color: darkseagreen;
+}
+
+h3, .rody {
+    border-bottom: 1px dashed black;
+}
+
+body > p {
+    background-color: royalblue;
+}
