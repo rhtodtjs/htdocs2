@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transition TEST</title>
+
+    <style type="text/css">
+
+        img {
+            opacity: 0.4;
+
+        }
+
+        img:hover {
+            opacity: 1.0;
+        }
+
+        .aa img[src='lion.png'] {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<img src="img/lion.png" width="150" height="120">
+<img src="img/audio.png" width="150" height="120">
+
+
+<div class="aa">
+
+    <img id="k" src="img/lion.png" width="150" height="120">
+    <img src="img/audio.png" width="150" height="120">
+
+</div>
+
+
+</body>
+</html>

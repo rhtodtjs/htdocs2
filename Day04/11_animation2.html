@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+
+        #ball {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ff000d;
+            border-radius: 50px;
+            animation-name: ff;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            transition: background-color 2s;
+
+        }
+
+        @keyframes ff {
+
+            from, to {
+                bottom: 0px;
+                animation-timing-function: ease-out;
+
+            }
+
+            50% {
+                bottom: 400px;
+                animation-timing-function: ease-in;
+                background-color: chartreuse;
+
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="ball"></div>
+</body>
+</html>

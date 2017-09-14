@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Script Test</title>
+
+
+    <script type="text/javascript">
+
+        //화면에 텍스트 출력..
+        //HTML에서 body안에 했던작업은
+        //스크립트에서 출력이가능
+
+
+        document.write("죽갔다");
+
+
+        //화면에 HTML문법으로 출력가능..
+        document.write('<br/>');
+        //document.write('<a href="http://www.naver.com"/>시발');
+
+
+        //자바스크립트는 프로그래밍 언어라서요.
+
+        var a = 10;
+        document.write("<hr/>");
+        document.write(a);
+
+        var b = new Date();
+
+        document.write("<hr/>" + b.getFullYear());
+
+        document.write("<br/>");
+
+        for (var i = 0; i < 5; i++) {
+            if (i == 4) document.write(i);
+            else document.write(i + ",");
+
+        }
+
+        function aaa() {
+
+            //document.write("ㅋㅋ");
+
+
+            var e = document.getElementById('p01');
+            e.innerHTML = "clicked";
+
+        }
+
+        var myCar = {
+            model: "bmw",
+            color: "red",
+            hp: "100"
+        };
+
+        document.write(myCar.color);
+
+
+
+
+    </script>
+</head>
+<body>
+
+Hello~
+
+<p>
+    <button onclick="aaa()">Button</button>
+</p>
+
+<p id="p01">tlvkf</p>
+
+
+</body>
+</html>

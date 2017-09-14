@@ -1,0 +1,121 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: gray;
+}
+
+header {
+    height: 60px;
+    margin: 10px;
+    background-color: gold;
+
+}
+
+nav {
+
+    background-color: goldenrod;
+    list-style: none;
+    text-align: center;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    padding: 10px 0;
+
+}
+
+nav ul li {
+    display: inline;
+    text-transform: uppercase;
+    padding: 0 10px;
+    letter-spacing: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: orangered;
+}
+
+aside#left {
+    float: left;
+    width: 175px;
+    margin-top: 20px;
+}
+
+#left h4 {
+    font-family: "함초롬바탕 확장", sans-serif;
+    font-size: 20px;
+}
+
+#left ul {
+    font-family: Arial, Helvatica, sans-serif;
+    font-size: 15px;
+    color: #FFF;
+    list-style: none;
+    text-indent: 15px;
+}
+
+#left ul li {
+    background-color: #3f3f3f;
+    color: whitesmoke;
+    border-bottom: 1px solid #333;
+}
+
+#left ul li a {
+    text-decoration: none;
+    color: #FFF;
+    display: block;
+}
+
+#left ul li a:hover {
+    background: orangered;
+}
+
+#left ul li a:active {
+    background: #d40203;
+}
+
+#main {
+    font-family: "함초롬바탕 확장", sans-serif;
+    font-size: 12px;
+    overflow: hidden;
+    float: left;
+    width: 440px;
+}
+
+section#main article  {
+    display: inline-block;
+}
+
+aside#right {
+    float: right;
+    width: 200px;
+    padding: 0px;
+    margin-left: 10px;
+    background-color: pink;
+
+}
+
+#shopcart {
+    margin-bottom: 20px;
+}
+
+#login {
+    margin-top: 40px;
+}
+
+footer {
+    height:50px;
+    background-image: url("images/footer_bg.gif");
+    clear: both;
+    background-position: top left;
+    text-align: center;
+    font-size: 20px;
+}

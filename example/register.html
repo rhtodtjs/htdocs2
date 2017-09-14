@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTER</title>
+
+    <style type="text/css">
+
+        body {
+            height: 100%;
+            background-color: #fef1e9;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+
+        input {
+            display: inline-block;
+            width: 160px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <form method="post" action="register_do.php">
+
+
+        <fieldset>
+            <legend>회원정보입력</legend>
+
+            <label for="id"></label>
+            <input type="text" name="id" id="id">아이디
+            <button>중복검사</button>
+            <br/>
+            <label for="password"></label>
+            <input type="text" name="password" id="password">비밀번호<br/>
+            <label for="password2"></label>
+            <input type="password" name="password2" id="password2">비밀번호 확인<br/>
+            <label for="name"></label>
+            <input type="text" name="name" id="name">이름<br/>
+            <label for="tel"></label>
+            <input type="tel" name="tel" id="tel">휴대폰 번호<br/>
+            <label for="birth"></label>
+            <input type="date" name="birth" id="birth">생일<br/>
+            <label for="page"></label>
+            <input type="url" name="page" id="page">홈페이지<br/>
+
+
+            <input type="radio" value="male" name="gender" id="gender1">남성
+            <br/>
+            <input type="radio" value="female" name="gender" id="gender2">녀성
+
+
+        </fieldset>
+
+        <input type="submit" value="제출">
+        <input type="reset" value="취소">
+
+    </form>
+</div>
+
+</body>
+</html>
