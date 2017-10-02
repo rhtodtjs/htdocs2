@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--요소의 속성을 변경하는 작업..-->
+<!--img의 src속성을 컨츄롤..-->
+
+<img src="../img/123.jpg" width="120" height="100" id="aa" style="background-color: blueviolet;border: 3px solid red ">
+<br/>
+<button onclick="change()">BUTTON</button>
+<script>
+
+    function change() {
+
+        var e = document.getElementById('aa');
+
+        e.src = "../img/ICON.png";
+
+    }
+</script>
+
+<hr/>
+
+<!--요소의 스타일 변경-->
+
+<style type="text/css">
+
+    .kk {
+        color: red;
+        font-weight: bold;
+        background-color: yellow;
+    }
+</style>
+
+<p id="p1">this is paragraph..</p>
+<input type="button" name="" value="버어튼" onclick="aaa(this)">
+<script>
+
+    function aaa(e) {
+        //클릭된 이 버튼의 앞 형제 요소..
+        var pp = e.previousElementSibling;
+//        pp.style.color = 'red';
+//        pp.style.fontWeight = 'bold';
+//        pp.style.fontSize = '27px';
+//        pp.textContent = "asd";
+
+        // 이 위의 작업들 한번에 하고싶니?
+        pp.className = "kk";
+        pp.style.fontFamily = 'cursive';
+
+
+    }
+</script>
+
+<h2 id="xx">This is Heading</h2>
+<button onclick="show()">Show</button>
+<br/>
+<button onclick="hide()">Hide</button>
+<br/>
+<button onclick="toggle()">Hide</button>
+<script>
+
+    function show() {
+
+        document.getElementById('xx').style.visibility = "visible";
+
+    }
+
+    function hide() {
+        document.getElementById('xx').style.visibility = "hidden";
+    }
+
+    function toggle() {
+        var v = document.getElementById('xx').style.visibility;
+        document.getElementById('xx').style.visibility = (v == "hidden" ? "visible" : "hidden");
+
+    }
+</script>
+
+
+<!--DOM의 node를 동적으로 생성!! -->
+
+<hr/>
+<button onclick="addText()">add Text node</button>
+<button onclick="addElement()">add Text node</button>
+
+<p class="pp"></p>
+
+<script>
+
+    function addText() {
+
+        var node = document.createTextNode('this is text');
+        var node = document.createTextNode('<a href"#">this is text</a>'); //a 노드를만든게 아님..
+
+        var target = document.getElementsByClassName('pp')[0];
+
+        target.appendChild(node); //텍스트노드를 직접 삽인한것..
+    }
+
+    function addElement() {
+
+        var target = document.getElementsByClassName('pp')[0];
+
+        //a ㅔ엘리먼트 노드 생성..
+        var node = document.createElement('a');
+        //속성추가..
+        node.href = "http://www.naver.com";
+
+        //위 방법은 직접 만들고 붙인거고
+
+        //아래방법은 만든다음에 그걸 붙인거..
+
+        //속성 노드 동적 생성..
+
+        var attr = document.createAttribute('href');
+        attr.value = "http://www.google.com";
+
+        //위의 속성노드를 'a'요소 노드에 설정..
+        node.setAttributeNode(attr);
+
+        node.innerHTML = "Hello";
+        //앵커요소 노드에 텍스트 노드를 추가..
+
+        var text = document.createTextNode('Google');
+
+        node.appendChild(text);
+
+        target.appendChild(node);
+
+
+
+    }
+</script>
+
+
+<hr/>
+
+
+</body>
+</html>

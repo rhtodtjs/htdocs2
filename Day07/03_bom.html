@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+
+<!-- BOM(Brower Object Model) -->
+<!-- 1. window :최상위 객체 -->
+
+<!-- 주요 메소드들.. -->
+<!-- 1) open(), close() -->
+<button onclick="aaa()">naver</button>
+<script type="text/javascript">
+    function aaa() {
+        //기본 사용
+        //window.open('http://www.naver.com');  //_blank
+        //window.open('http://www.naver.com', '_self'); //target
+
+        //옵션(spec)적용.
+        // window.open('http://www.naver.com', '_blank', 'width=300, height=150, resizable=1');
+        var specs = 'width=300, height=150, left=200, top=150, resize=1';
+        window.open('http://www.naver.com', '_blank', specs);
+    }
+</script>
+
+<!-- 빈 윈도우 띄우기 -->
+<button onclick="bbb()">message window</button>
+<script type="text/javascript">
+    function bbb() {
+        var win = open('', '', 'width=500, height=200, left=100, top=50');
+
+        win.document.write('<h3>Hello</h3>');
+        win.document.write('<p>This is message window</p>');
+    }
+</script>
+
+<!-- 윈도우 닫기 -->
+<button onclick="ccc()">close window</button>
+<script type="text/javascript">
+    function ccc() {
+        close();
+    }
+</script>
+
+<hr/>
+<!-- 2) moveTo(), moveBy() -->
+<button onclick="ddd()">open window</button>
+<button onclick="eee()">move window</button>
+<script type="text/javascript">
+    function ddd() {
+        w = open('', '', 'width=300, height=120');
+        w.document.write('오늘의 특가 제품입니다.!!!');
+        w.moveTo(100, 50);
+    }
+
+    function eee() {
+        w.moveBy(10, 5);
+        w.focus();
+    }
+</script>
+
+<!-- 3) setTimeout(), setInterval(), clearInterval() -->
+<hr/>
+<button onclick="fff()">3초후에 경고창 띄우기</button>
+<br/>
+<input type="text" name="" id="in1" value="0"><br/>
+<button onclick="ggg()">카운트 증가</button>
+<button onclick="hhh()">카운트 정지</button>
+<script type="text/javascript">
+    function fff() {
+        //3초 후에 특정 함수작업 수행!!
+        window.setTimeout(function () {
+            alert('3초경과')
+        }, 3000);
+    }
+
+    function show() {
+        var e = document.getElementById('in1');
+        e.value = parseInt(e.value) + 1;
+    }
+
+    var a;
+    function ggg() {
+        a = setInterval(show, 1000);
+    }
+
+    function hhh() {
+        clearInterval(a);
+    }
+</script>
+
+<!-- 2. document.. 이건 하지 맙시다.-->
+
+<!-- 3. screen -->
+<hr/>
+<h3>screen 객체</h3>
+<script type="text/javascript">
+    //screen객체는 모니터의 사이즈..
+    document.write(screen.width + " , " + screen.height + "<br/>");
+    document.write(screen.availWidth + " , " + screen.availHeight + "<br/>");
+
+    function iii() {
+        // var specs= 'width='+screen.availWidth+','+'height='+screen.availHeight;
+        // open('','',specs);
+
+        w = open('', '', 'width=300, height=400');
+        w.document.write('<button onclick="resizeTo(screen.availWidth,screen.availHeight)">full screen</button>');
+    }
+
+    //브라우저 사이즈는???
+</script>
+<button onclick="iii()">전체화면 윈도우</button>
+
+
+<script>
+
+    document.write('<br/>');
+    document.write(window.innerWidth + " , " + window.innerHeight);
+    document.write('<br/>');
+    document.write(window.outerWidth + " , " + window.outerHeight);
+
+</script>
+
+
+<h3>~~~</h3>
+
+<script>
+
+    document.write(location.href + "<br/>");
+    document.write(location.protocol + "<br/>");
+</script>
+
+
+<button onclick="assign()">새로운 문셔열기</button>
+<button onclick="assign()">새로고침</button>
+<button onclick="assign()">새로운 문셔열기</button>
+
+<script>
+
+    function assign() {
+        location.assign('http://www.naver.com');
+    }
+
+    function reload() {
+        location.reload();
+
+    }
+
+    function replace() {
+        location.replace('http://www.google.com');
+    }
+</script>
+
+
+<!--5. history-->
+
+</body>
+</html>

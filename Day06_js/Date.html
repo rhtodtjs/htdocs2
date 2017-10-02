@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        //내장객체 생성자함수 (Date , Number , String , Math , Array)
+        //1.Date..
+        var date = new Date();
+        document.write(date + "<br/>");
+        document.write(typeof(date) + "<br/>");
+
+        //주요기능..
+        document.write(date.toDateString() + "<br/>");
+        document.write(date.toLocaleString() + "<br/>");
+        document.write(date.getYear() + "<br/>"); //1900년기준..
+        document.write(date.toUTCString() + "<br/>");
+        document.write(date.getMonth() + "<br/>");
+        document.write(date.getHours() + "<br/>");
+        document.write(date.getMinutes() + "<br/>");
+
+        document.write(date.getSeconds() + "<br/>");
+
+        document.write(date.getTime() + "<br/>"); //1970년 1월 1일 09시 기준으로 쌓인 수치
+
+        var date2 = new Date(); //현재 날짜..
+
+        date2.setFullYear(2018);
+        document.write(date2.toLocaleString() + "<br/>");
+
+
+        //일일히 set이어려우니 생성자로 바로줘라걍..
+
+        var date3 = new Date(2017, 7, 23); // 2017년 8월 23일
+
+
+        var date4 = new Date(1487233345000);
+        document.write(date4 + "<br/>");
+
+
+        //기준일을 Input요소로받아와서 date를 통해
+
+
+        function click1() {
+            var user = document.getElementById('asd').value;
+            var aa = new Date(user);
+            var nn = new Date();
+
+            var xx = new Date(nn.getTime() - aa.getTime());
+
+            //nn-aa 변수끼리 빼도 된다;
+
+            var day = Math.floor(xx / (1000 * 60 * 60 * 24));
+
+            if (day > 0) alert("오늘로부터 " + day + "일전..");
+            else if (day < 0) alert(day + "일남음");
+            else  alert("오늘");
+        }
+
+        function show() {
+
+            var day = new Date();
+
+            document.getElementById('kk').value = day.toLocaleString();
+
+            //1초후에 show를 또 불러보ㅓ자
+            window.setTimeout('show()', 1000);
+            //.setInterval('show()', 1000);
+
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+
+<fieldset>
+    <legend>시발</legend>
+    <form>
+        <input type="date" id="asd">
+        <button onclick="click1()">눌러</button>
+    </form>
+
+
+</fieldset>
+
+<h4>돼지탈 시계</h4>
+
+<input type="text" id="kk" readonly>
+
+<button onclick="show()"> show clock</button>
+
+
+</body>
+</html>

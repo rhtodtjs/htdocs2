@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>회원 신청서</h2>
+
+<form id="theForm" method="get" action="submitData">
+    <table>
+        <tr>
+            <td>이름<span class="red">*</span></td>
+            <td>
+                <input type="text" id="name" name="name"/></td>
+            <td id="nameError" class="red">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>성별<span class="red">*</span></td>
+            <td>
+                <input type="radio" name="gender" value="m"/>남성
+                <input type="radio" name="gender" value="f"/>여성
+            </td>
+            <td id="genderError" class="red">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>휴대폰 번호Phone<span class="red">*</span></td>
+            <td>
+                <input type="text" id="phone" name="phone"/></td>
+            <td id="phoneError" class="red">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>이메일<span class="red">*</span></td>
+            <td>
+                <input type="text" id="email" name="email"/></td>
+            <td id="emailError" class="red">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>패스워드(6-8 글자)<span class="red">*</span></td>
+            <td>
+                <input type="password" id="password" name="password"/></td>
+            <td id="passwordError" class="red">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>패스워드 검증<span class="red">*</span></td>
+            <td>
+                <input type="password" id="pwVerified" name="pwVerified"/></td>
+            <td id="pwVerifiedError" class="red">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <input type="submit" value="제출" id="submit"/>&nbsp;
+                <input type="reset" value="지우기" id="reset"/></td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</form>
+</form>
+
+</body>
+</html>

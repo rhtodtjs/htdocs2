@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+
+        div#cart {
+            width: 400px;
+            height: 150px;
+            padding: 10px;
+            border: 1px dotted red;
+        }
+    </style>
+
+    <script>
+
+        var id;
+        var overTarget = false;
+
+        function startDrag() {
+            //이벤트 객체의 드래그 트랜스퍼 객체에게 이벤트
+
+            //발생자의
+
+            event.dataTransfer.setData("Text", event.target.id);
+
+            //다른방법.. 전역변수에 id저장
+
+            id = event.target.id;
+
+            //alert(id);
+        }
+
+        function overDrag() {
+            event.preventDefault();
+            overTarget = true;
+        }
+
+        function dropDrag() {
+
+//            var i = event.dataTransfer.getData('Text');
+//            var e = document.getElementById(i);
+//            //찾아온 e를 target에게 div에게 추가하자.
+//            event.target.appendChild(e);
+
+
+        }
+
+        function endDrag() {
+
+            if (overTarget) {
+                var e = document.getElementById(id);
+                document.getElementById('cart').appendChild(e);
+
+                overTarget = false;
+            }
+        }
+
+        function leaveDrag() {
+
+            overTarget = false;
+        }
+
+    </script>
+</head>
+<body>
+
+<div id="cart" ondragover="overDrag()" ondrop="dropDrag()" ondragleave="leaveDrag()"></div>
+
+
+<img src="computer.png" width="150" height="150" id="img01" draggable="true" ondragstart="startDrag()"
+     ondragend="endDrag()">
+<img src="notebook.png" width="150" height="150" id="img02" draggable="true" ondragstart="startDrag()"
+     ondragend="endDrag()">
+
+
+</body>
+</html>

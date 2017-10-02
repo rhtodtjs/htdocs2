@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-3.2.1.min.js">
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#b1').on('click', function () { //get
+
+                $.get('getTest.php?name=SAM&pw=12467', function (data, status) {
+
+                    $('#target').html(data + "status : " + status);
+
+                });
+
+            });
+
+            $('#b2').on('click', function () { //post
+
+                $.post('postTest.php', {
+                    name: "Robin", pw: 1234 //JS 리터럴 객체 생성후 전달
+                }, function (data, status) {
+
+                    $('#target').html(data + "status : " + status);
+
+
+                });
+
+            });
+
+            $('#b3').on('click', function () { //ajax
+
+                var a = {
+                    type: "GET",
+                    url: "test.txt",
+                    success: function (data) {
+
+                        $('#target').html(data);
+                    },
+                    error: function (error) {
+
+                        $('#target').html(error.responseText);
+                    }
+
+                };
+                $.ajax(a);
+
+
+                //포스트
+
+                var b = {
+                    type: "POST",
+                    url: "postTest.php",
+                    data: "name=SZX&pw=tlqkftoRldi",
+                    success: function (data) {
+
+                        $('#target').html(data);
+                    },
+                    error: function (error) {
+
+                        $('#target').html(error.responseText);
+                    }
+
+                };
+                $.ajax(b);
+
+            });
+
+
+            $('#b4').on('click', function () { //load
+
+                $('#target').load('test.txt'); //get방식만가능..
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+<p>
+    <button id="b1">get Method</button>
+    <button id="b2">Post Method</button>
+    <button id="b3">Ajax Method</button>
+    <button id="b4">load Method</button>
+</p>
+
+<div id="target" style="border: 1px solid red ; width: 200px;height: 200px;">
+
+
+</div>
+
+</body>
+</html>

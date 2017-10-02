@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!--DOM (Document Object Model)-->
+<!--DOM 트리에서 가지 하나하나를 node 라고 함.-->
+
+<!--node 종류 : element node , attribute node , text node(순수한 text만)-->
+
+<!--node간의 관계 : child node , parent node , sibling node-->
+
+
+<!--node 의 type 확인하기.-->
+
+<p id="p12"><a href="#" target="_blank">aaa</a></p>
+
+<script type="text/javascript">
+
+    //id가 p1인 요소를 찾아온것.
+    var e = document.getElementById('p1');
+    alert(e.nodeType + ', ' + e.nodeName);
+    // 노드타입이 1이면 element node
+
+
+    //p요소의 속성
+    var attrs = e.attributes;
+    //2 : attribute node 라는거군요..
+    alert(attrs[0].nodeType + ', ' + attrs[0].nodeName + ", " + attrs[0].value);
+
+
+    //p요소의 자식중 첫번째 자식을 얻어오기 :a
+
+    var e = e.firstChild;
+
+    alert(e.nodeType + ', ' + e.nodeName); //element node 1 ,
+
+    //a요소의 속성..
+
+    var attrs = e.attributes;
+
+    alert(attrs[0].nodeType + ', ' + attrs[0].nodeName + " , " + attrs[0].value);
+    alert(attrs[1].nodeType + ', ' + attrs[1].nodeName + " , " + attrs[1].value);
+
+    //a요소의 첫번째 자식 : 텍스트 노드.
+
+    var t = e.firstChild;
+
+    alert(t.nodeType + ', ' + t.nodeName); //3 : text node
+
+    alert("텍스트녿의값  :   " + t.data);
+
+
+</script>
+
+<!--자식노드 제어하기..-->
+<ul>
+    <li>aaa</li>
+    <li>bbb</li>
+    <li>ccc</li>
+    <li>ddd</li>
+
+</ul>
+
+<ul>
+    <li>kkk</li>
+    <li>sss</li>
+
+</ul>
+
+<!--<script>-->
+
+<!--//li 요소들 갯수를 확인해보자.-->
+
+<!--var items = document.getElementsByTagName('li');-->
+<!--alert(items.length);-->
+
+<!--//이중에서 첫번째 ul요소의 자식갯수..-->
+
+<!--var lists = document.getElementsByTagName('ul');-->
+<!--var items = lists[0].getElementsByTagName('li');-->
+
+<!--alert(items.length);-->
+
+<!--//ul 요소의 자식 중에서 첫번째 요소와 마지막 요소의 Text Node 값 얻어오자.-->
+<!--//aaa , ddd ..-->
+
+<!--alert(lists[0].firstElementChild.firstChild.data);-->
+<!--alert(lists[0].lastElementChild.firstChild.data);-->
+<!--alert(lists[1].lastElementChild.textContent);-->
+
+
+<!--</script>-->
+
+
+<hr/>
+
+<!--형제들 요소 찾아..-->
+
+<div>
+    <p>Fruits List</p>
+    <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+    </ul>
+
+</div>
+
+<button onclick="btn(this)">요소 확인</button>
+
+<p>FUCK YOU</p>
+
+<script>
+
+
+    function btn(e) {
+
+        var div = document.getElementsByTagName('div')[0];
+        //div 요소의 첫번ㅉㅐ 자식놈.. p 요소.. 잡아오자
+        var p = div.firstElementChild;
+
+        //p요소 다음에있는 형제 ul요소..
+        //p.nextSibling //<--이렇게하면 공백요소 텍스트가찾아짐.. (줄바꿈때문에)
+        var ul = p.nextElementSibling;
+        //alert(ul.firstElementChild);
+
+        // ul 의 자식들..
+
+        // alert(ul.childNodes.length);
+
+        var str = "";
+        for (var i = 0; i < ul.childNodes.length; i++) {
+            str += ul.childNodes[i].nodeName + "\n";
+        }
+
+        //alert(str);
+
+        //ul의 자식 elemnent 노드들의 개수..
+//        alert(ul.firstElementChild);
+
+
+        var str = "";
+
+        var li = ul.firstElementChild;
+        str += li.textContent + "\n";
+
+        for (var i = 1; i < ul.childElementCount; i++) {
+            li = li.nextElementSibling;
+            str += li.textContent + "\n";
+
+        }
+//        alert(str);
+
+        //경고창말고
+
+        //button 바로 밑에있는 p요소에출력..
+
+
+        var temp1 = document.getElementsByTagName('button');
+        //alert(temp1[0].nodeName);
+        temp1[0].nextElementSibling.innerHTML = str;
+
+
+
+        //버튼이 이 메소드의 파라미터인 e..
+        //e.nextElementSibling.innerHTML = str;
+
+
+        //이런식이면 속성과 스타일 변경 가능..
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-3.2.1.min.js">
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+
+
+            $('#show').click(function () {
+                $('img').show("slow");
+            });
+
+            $('#hide').on('click', function () {
+                $('img').hide(3000);//3초..
+            });
+
+            $('#toggle').on('click', function () {
+                $('img').toggle();
+            })
+
+
+        });
+    </script>
+</head>
+<body>
+
+
+<p>
+    <button id="show">show</button>
+    <button id="hide">hide</button>
+    <button id="toggle">toggle</button>
+    <button id="fadein">fadein</button>
+    <button id="fadeout">fadeout</button>
+    <button id="fadeto">fadeto</button>
+    <button id="slideup">slideup</button>
+    <button id="slidedown">slidedown</button>
+    <button id="slidetoggle">slidetoggle</button>
+
+
+    <button id="all">show+fade+slide</button>
+
+
+</p>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#fadein').click(function () {
+            $('img').fadeIn(4000, function () {
+                alert("페이드인 끝");
+            });
+        });
+
+        $('#fadeout').on('click', function () {
+            $('img').fadeOut(3000);//3초..
+        });
+
+        $('#fadeto').on('click', function () {
+            $('img').fadeTo(2000, 0.5); //투명도 0.5까지..
+        });
+
+
+        $('#slideup').click(function () {
+            $('img').slideUp('slow');
+
+        });
+
+        $('#slidedown').click(function () {
+            $('img').slideDown('slow');
+
+        });
+
+        $('#slidetoggle').click(function () {
+            $('img').slideToggle('slow');
+
+        });
+
+        $('#all').click(function () {
+            $('img').show().fadeOut('slow').slideDown('slow');
+
+        });
+    });
+</script>
+
+<img src="slide_mehwa.jpg" width="200">
+
+<!--에니메이션 응용-->
+
+<hr/>
+
+<h3>애니메이션 응용</h3>
+
+<div class="abc">
+
+    Menu :
+    <div>aa</div>
+    <div>bb</div>
+    <div>cc</div>
+    <div>dd</div>
+
+
+</div>
+
+<style type="text/css">
+
+    div.abc div {
+        background-color: green;
+        margin: 3px;
+        width: 80px;
+        height: 40px;
+        float: left;
+        text-align: center;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+
+        $('div.abc').click(function () {
+            //다섯개의 div중에서 첫번째 녀석이 보여지는가?
+            if ($('div.abc div:first').is(':hidden')) {
+
+                $('.abc div').show('slow');
+            } else {
+                $('.abc div').slideUp('slow');
+            }
+
+        });
+    });
+</script>
+</body>
+</html>

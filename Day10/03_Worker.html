@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function clickBtn() {
+
+            var n = 0;
+            while (true) {
+
+                n++;
+                document.getElementById('hh').innerHTML = n;
+            }
+        }
+
+        function startWorker() {
+            //Worker 객체가 존재하는지..
+
+            if (typeof (w) == 'undefined') {
+                w = new Worker('worker.js') //Worker객체 채용.. 및 일 시작
+
+                //일꾼 사용자는 일꾼이 보내는 메세지를
+                //받아서 처리.
+
+                w.onmessage = function (event) {
+                    document.getElementById('hh').innerHTML = event.data;
+                }
+            }
+        }
+
+        function stopWorker() {
+
+            w.terminate();
+            w = undefined; //js 에서의 null참조시키는 방법..
+        }
+    </script>
+</head>
+<body>
+
+<button onclick="clickBtn()"> 무한 반복!!</button>
+<hr/>
+<h3 id="hh">결과.</h3>
+<hr/>
+<button onclick="startWorker()">일꾼 시작</button>
+<button onclick="stopWorker()">일꾼 종료</button>
+
+<!--메인 스레드의 작업여부 테스트용-->
+<button onclick="alert('잘댐')">눌러봐</button>
+
+<hr/>
+<h3>워커에게 메세지 전달</h3>
+<input type="text" id="in1" name="">
+<button onclick="send()">send to worker</button>
+<br>
+<input type="text" id="in2" size="40" name="">
+<script>
+    function send() {
+
+        var v = document.getElementById('in1').value;
+
+
+
+        w2 = new Worker('worker2.js');
+
+
+        //w2에게 메세지보내기..
+        w2.postMessage(v);
+
+        w2.onmessage = function (event) {
+
+            document.getElementById('in2').value = event.data;
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link type="text/css" href="01_ex.css" rel="stylesheet">
+    <!--JQuery library-->
+
+    <!--//1. 파일다운로드 방식..-->
+
+    <!--<script type="text/javascript" src="jquery-3.2.1.min.js"></script>-->
+
+    <!--//2. 인터넷 링크를 통한방식 CDN-->
+
+    <script
+            src="http://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script>
+
+
+        //HTML 문서가 롣가 완료되면..
+
+
+        jQuery(document).ready(function () {
+
+//            alert("준비 완료");
+            //버튼이 클릭되는 이벤트 처리
+            //css의선택자를이용하여 돔요소 제어..
+            $('#btn').click(function () {
+                $(this).hide();
+            });
+
+            //이벤트를 처리하는 3가지 방법..
+
+
+            //1.바인드 방법..
+            //add EventListener 랑 비슷한 방식..
+            $('#b1').bind('click', function () {
+                //클래스명이 p1인녀석 보이게하기
+                $('.p1').show();
+            });
+
+            //2. 이벤트명()로 처리..
+            $('#b2').click(function () {
+
+                $('p.p1').hide();
+
+            });
+
+
+            //3. 요즘권장되는 방식..
+            //여러개의 에벤트를 한번에 등록..가능..
+            //마우스 이벤터에서 소개.
+
+            $('#b3').on('click', function () {
+
+                //$('p').toggle(); //p요소를 찾아와서 toggle()보이거나안보이거나..
+
+                //$('p')[0].toggle(); //p요소가 여러개라면..
+                //이결과는 배열임..
+
+                //얘는 제이쿼리가아니라 자바스크립트..
+                $($('p')[0]).toggle();
+
+                var a = $('p'); // a 라는 변수는 js 변수..
+
+                //js 변수는 jquery 명령을 수행할 수 없음.
+
+                a.toggle(); //Error
+
+                var $e = $('p'); //jquery용 변수선언
+
+                $e.toggle();
+            });
+
+
+        });
+
+
+    </script>
+    <!--마우스 제어 스크립트 추가-->
+    <script type="text/javascript" src="01_js.js"></script>
+
+
+</head>
+<body>
+
+<button id="btn">button</button>
+
+<hr/>
+
+<button id="b1">show</button>
+<button id="b2">hide</button>
+<button id="b3">toggle</button>
+
+<p class="p1">이 요소를 제어 합니다</p>
+
+<hr/>
+<h3>마우스 이벤트 처리</h3>
+
+<div class="m">
+
+    <p></p>   <!--마우스 오버정보-->
+    <p></p> <!--마우스 leave 정보-->
+
+</div>
+
+<h5>멀티 마우스 이벤트</h5>
+<div class="m2"></div>
+
+
+<!--포커스 이벤트-->
+
+<hr/>
+<h3>포커스 이벤트</h3>
+
+<label for="name">name : <input type="text" name="" id="name"></label>
+
+<script>
+    //
+    <!--포커스 제어 스크립트문-->
+    $(document).ready(function () {
+
+        //input요소의 포커스 이벤트
+        $('input').focus(function () {
+            $(this).css('background-color', 'yellow');
+        });
+
+        //포커스 반대..
+        $('input').on('blur', function () {
+            $('input').css('background-color', 'black');
+        });
+
+
+
+    });
+</script>
+
+
+</body>
+</html>

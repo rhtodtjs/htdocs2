@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        //이벤트 처리의 3가지 방법..
+        //1.html의 속성에 콜백함수를 지정.. onclick..
+
+        //2. 자바스크립트에서 요소를 찾아 속성으로 함수를 지정.
+
+        //3. 요소에 이벤트 리스너를 추가하는 방법..
+
+
+        //body 안에있는 h2요소를 제어해봅시다
+
+        var h = document.getElementById('aa'); //여기있어봐야 바디보다 헤더가먼저되서
+        //무용지물..
+
+
+        //로딩이 완료된후 발생한 onload이벤트에 지정한 함수
+        function loaded() {
+            var h = document.getElementById('aa');
+
+            h.innerHTML = "Hello~";
+
+            //우리가 잘 아는 클릭이벤트처리하기.
+            //2번째 방법인. 속성으로 함수지정
+
+            var h = document.getElementById('aa').ondblclick = function () {
+                this.innerHTML += "Wolrd";
+            };
+
+            var e = document.getElementById('aa');
+            e.addEventListener('click', function () {
+                this.innerHTML += " fuck~";
+            });
+
+
+        }
+
+    </script>
+</head>
+<body onload="loaded()">
+
+<h2 id="aa"></h2>
+
+<!--focus() , blur() , change()-->
+<input type="text" name="" id="in1" onfocus="aaa()">
+<input type="text" name="" onblur="bbb()" onchange="ccc()">
+
+<script>
+
+    function aaa() {
+        document.getElementById('in1').value = "aa";
+    }
+
+    function bbb() {
+        alert('blur');
+    }
+
+    function ccc() { //z컨텐츠가 변경됬을때
+        alert('change');
+    }
+</script>
+
+<!--사용자가.. 값을 입력하고 필드를 벗어날때-->
+<!--입력된글자를 대문자로 바꿀때-->
+
+
+<input type="text" name="" id="in2" onchange="changeup()">
+
+<script>
+    function changeup() {
+        var s = document.getElementById('in2').value;
+        document.getElementById('in2').value = s.toUpperCase();
+    }
+</script>
+
+<!--마우스 이벤트-->
+<!--mouseover , out move-->
+
+<hr/>
+
+<div style="width: 200px ; height: 150px; border: 1px solid red ; background-color: gold"
+     onmouseover="over(this)" onmouseout="out(this)" onmousemove="move(this)">
+
+</div>
+
+<script>
+
+    function over(e) {
+        e.style.backgroundColor = "lightgreen";
+        e.style.border = "2px solid blue";
+    }
+
+    function out(e) {
+
+        e.style.backgroundColor = "gold";
+        e.style.border = "1px solid red";
+    }
+    var a = 0;
+    function move(e) {
+
+        a++;
+        e.innerHTML = a;
+    }
+</script>
+
+
+<hr/>
+<div style="width: 200px;height: 150px; background-color: green" id="div">
+
+</div>
+
+<script>
+    var e = document.getElementById('div');
+    e.addEventListener('mousemove',
+        function (event) {
+            var str = "브라우저 좌표 x " + event.clientX + "<br/>coordi y " + event.clientY + '<br/>';
+            //브라우저안에서 좌표..
+
+            str += "모니터좌표  X :" + event.screenX + '<br/>' + "Y : " + event.screenY;
+            //모니터 해상도에서 좌표
+
+            str += "영역 안에서 좌표'<br/>'" + event.offsetX + "," + event.offsetY + "<br/>";
+            e.innerHTML = str;
+        });
+</script>
+
+
+<!--마우스 다운 & 업-->
+
+<button id="btn">버튼</button>
+
+<script>
+    var btn = document.getElementById('btn');
+
+    //이벤트리스너로 마우스다운
+    btn.addEventListener('mousedown', function () {
+        btn.style.backgroundColor = "#FF0000";
+        btn.style.color = "#ffff00";
+        btn.style.width = "100px";
+        btn.style.fontSize = "2em";
+    });
+
+    function md() {
+        btn.style.backgroundColor = "";
+        btn.style.color = "";
+        btn.style.width = "";
+        btn.style.fontSize = ".5em";
+    }
+    btn.addEventListener('mouseup',md);
+</script>
+
+
+<hr/>
+<!--키보드 입력 제어-->
+
+
+
+
+</body>
+</html>

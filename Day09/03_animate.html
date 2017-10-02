@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-3.2.1.min.js">
+
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $("#b1").on('click', function () {
+                $('#a').animate({
+                    left: "200px"
+                });
+            });
+
+            $("#b2").on('click', function () {
+                $('#a').animate({
+                    left: ""
+                }, 3000);
+            });
+
+            $("#b3").on('click', function () {
+                $('#a').animate({
+                    left: "",
+                    opacity: '0.4',
+                    width: "+=50px",
+                    height:"-=20px"
+                }, 1000);
+            });
+
+            $("#b4").on('click', function () {
+                $('#a').animate({
+                    left: "+=30px"
+                }, 1000);
+                $('#a').animate({
+                    opacity: '0.8'
+                }, 1000);
+                $('#a').animate({
+                    width: "+=150px"
+                }, 1000);
+                $('#a').animate({
+                    height:"-=20px"
+                }, 1000);
+            });
+
+            $("#b5").on('click', function () {
+                $('#a').animate({
+                    left: "",
+                    opacity: '1.0',
+                    width: "200",
+                    height:"300"
+                }, 300);
+            });
+
+            $('#b6').on('click',function () {
+                $('#a').stop();
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+<p>
+    <button id="b1">Move</button>
+    <button id="b2">Move - back</button>
+    <button id="b3">Multi - Animate</button>
+    <button id="b4">Sequential</button>
+    <button id="b5">Reset</button>
+    <button id="b6">Stop</button>
+</p>
+
+<img src="slide_wizard.jpg" id="a" width="200" height="300" style="position:relative;">
+
+</body>
+</html>

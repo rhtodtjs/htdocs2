@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        <!--Js에서 2가지 객체 종류-->
+        //1.내장객체 : document , window , navigator , ..Date()(생성자 객체);
+
+        //2. 사용자 정의 객체
+
+        // 사용자정의 객체 2가지 생성 방법..
+
+        //1. 리터럴 객체(객체상수)
+
+        var Person = {
+            //객체의 멤버 변수 - 속성 property
+            //JSON 형태로 var를 쓰지 않는다.
+            Name: "aaa", // 변수추가 선언에는 , 를쓴다.
+            Age: 26,
+            Major: "Java",
+
+            //멤버함수 - 메소드
+            getName: function () {
+                return this.Name;
+            },
+
+            //멤버함수 - 메소드
+            getAge: function () {
+                return this.Age;
+            },
+
+            show: function () {
+
+                document.write("show : " + this.Name + ", " + this.Age + "<br/>");
+            }
+
+
+        }
+
+
+        Person.show();
+
+
+        document.write(Person.getAge());
+
+
+        //같은 능력을 가진 또다른 person 객체 생성..
+
+        var person2 = {
+            Name: "Robin", // 변수추가 선언에는 , 를쓴다.
+            Age: 26,
+            Major: "C++",
+
+            show: function () {
+                document.write(this.Name + ", " + this.Age);
+            },
+
+
+            //메소드는 여러개 가능.. 파라미터 ㅇㅋ
+            add: function (x, y) {
+                var z = x + y;
+                document.write('add : ' + z + "<br/>");
+            },
+
+            add2: function (x, y) {
+                var z = x + y;
+                return z;
+            }
+
+        }
+
+        document.write("<br/>");
+        person2.show();
+        document.write("<br/>");
+        person2.add(5, 3);
+        document.write(person2.add2(4, 6));
+
+
+        //JS는 유연해용 객체 생성후 멤버 속성과 메소드를 추가할수 있땅..
+        document.write("<br/>");
+        person2.tel = "01012345678";
+        document.write("<br/>");
+        document.write(person2.tel);
+        document.write("<br/>");
+        person2.add2(2, 6);
+
+
+        Person.out = function () {
+
+        }
+
+        document.write(person2.addr); // <-- 멤머변수를 추가한거임.. undefined로..
+
+        //리터럴 객체는 객체마다 여러개의 속성과 메소드를 일일히
+        //작성해줘야하기에 불편하다
+
+        document.write("<hr/>");
+
+
+        //객체의 멤버를 정의하고 new 로 생성한느 방식
+        //2. 생성자 함수를 이용한 방법..new 라는 키워드를 쓴당
+
+        //객체의 멤버를 정의하는中.. (객체 생성X [Class 생성과 비슷한 거요])
+        function Student() {
+            //속성 선언..
+            this.Name = "aaa";
+            this.Age = 26;
+            this.Major = "JAVA";
+
+            //메소드 선언
+
+            this.display = function () {
+                document.write("이름 : " + this.Name + " 나이 : " + this.Age + " 전공 : " + this.Major);
+            };
+
+
+            //속성값 입력 메소드..
+            this.setMember = function (name, age, major) {
+                this.Name = name;
+                this.Age = age;
+                this.Major = major;
+            }
+        }
+
+        var stu = new Student();
+        stu.display();
+
+
+        document.write("<br/>");
+        var stu2 = new Student();
+        stu2.Name = "BBB";
+        stu2.Age = 30;
+        stu2.Major = "C++";
+        stu2.display();
+
+        //멤버변수(속성)의 값을 일일히 넣는게 짜증나니까
+        //변수룰 입력하는 메소드가 있으면 편하지않겠니..
+        document.write("<br/>");
+
+        var stu3 = new Student();
+        stu3.setMember("ccc", 40, "Full Stack");
+        stu3.display();
+
+        //객체를 만들때 바로 값을 주는건 어때..?
+        //생성자 함수를 정의할때 값을 주는거로해보자
+
+        function Stud(name , age , major) {
+
+            this.Name = name;
+            this.Age = age;
+            this.Major = major;
+
+            this.show = function () {
+                document.write("이름 : " + this.Name + " 나이 : " + this.Age + " 전공 : " + this.Major);
+
+            };
+
+            //getter , setter..
+
+            this.getName = function () {
+
+                return this.Name;
+            }
+
+            this.setName = function (name) {
+
+                this.Name = name;
+            }
+
+        }
+        document.write("<br/>");
+
+        var stud = new Stud("DDD", 50 ,"php");
+
+        stud.setName("fuck");
+
+        stud.show();
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

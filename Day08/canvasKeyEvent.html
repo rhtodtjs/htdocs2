@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        // 전역 변수
+        var img = new Image();
+        img.src = "ms19.png";
+        var x = 300, y = 150;
+        var w = 50, h = 50;
+        var dx = 1, dy = 1;
+
+        var canvas; //도화지
+        var context; //화가
+
+        var imgBack = new Image();
+        imgBack.src = "bg.png";
+
+        function loaded() {
+
+            canvas = document.getElementById('canvas1');
+            context = canvas.getContext('2d');
+
+            runGame(); //겜시작
+
+
+            setInterval(runGame, 10);//10ms/s
+
+            //배경음악.
+
+            var sdBack = new Audio('dragon_flight.mp3');
+            sdBack.volume = 0.3;
+            sdBack.play();
+            sdBack.loop = true;
+        }
+
+        function runGame() {
+            moveAll();
+            drawAll();
+        }
+
+        function moveAll() {
+
+            x += dx;
+            y += dy;
+
+            if (x < w || x >= 600 - w) dx = -dx;
+            if (y < h || y >= 300 - w) dy = -dy;
+            //if(x < w || x >= 600-w) dx= -dx;
+
+
+        }
+
+        function drawAll() {
+
+            //그리기..전에 기존의 그림을 지우장..
+
+            context.clearRect(0, 0, 600, 300);
+
+            //배경그려,,
+            context.drawImage(imgBack, 0, 0, 600, 300);
+
+            //돼지그려려
+            context.drawImage(img, x - w, y - h, 100, 100);
+            //context.drawImage(img, x - w + 36, y - h + 36, 100, 100);
+
+
+        }
+
+        function keydown() {
+
+            var keyCode = event.keyCode;
+            switch (keyCode) {
+                case 37 : //LEFT
+                    dx = -1;
+                    break;
+                case 38 : //UP
+                    dy = -1;
+                    break;
+                case 39 : //RIGHT
+                    dx = 1;
+                    break;
+                case 40 : //DoWN
+                    dy = 1;
+                    break;
+                default:
+                    dx = 1;
+                    dy = 1;
+                    break;
+            }
+
+            var sd = new Audio('get_item.wav');
+            sd.volume = 0.2;
+
+            sd.play();
+
+        }
+
+        function keyup() {
+
+            var keyCode = event.keyCode;
+
+            if (keyCode >= 37 && keyC-+ode <= 40) {
+                dx = 0;
+                dy = 0;
+            }
+        }
+
+    </script>
+</head>
+<body onload="loaded()" onkeydown="keydown()" onkeyup="keyup()">
+
+<canvas id="canvas1" width="600" height="300" style="border: 2px solid black"></canvas>
+
+</body>
+</html>

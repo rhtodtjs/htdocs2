@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-3.2.1.min.js"></script>
+
+    <!--<script>-->
+
+    <!--$(document).ready(function () {-->
+
+
+    <!--//item이라는 클래스가 부여된 요소.-->
+    <!--// (a)들 중에서 0번째 녀석.-->
+
+    <!--$('.item:eq(0)').on('click', function () {-->
+
+    <!--//클릭된 a요소의 그림값을 얻어오기-->
+    <!--var href = $(this).attr('href');-->
+
+    <!--//id가 view의 img를 변경할때 에니메이션을 주자-->
+
+    <!--$('#view').hide('slow', function () {-->
+    <!--//새로갱신된 그림을 설정.-->
+    <!--$('#view img').attr('src', href);-->
+    <!--$(this).show(300);-->
+
+    <!--});-->
+
+    <!--//a요소 href 속성때문에 눌러봐야 창이 새로 떠서 뭘 볼수가없다.-->
+    <!--//이를 막아야하느니라..-->
+    <!--//click 이벤트를 a에게 전달하지않으면 됨.-->
+
+
+    <!--return false;-->
+
+
+    <!--});-->
+
+    <!--$('.item:eq(1)').on('click', function () {-->
+
+    <!--//클릭된 a요소의 그림값을 얻어오기-->
+    <!--var href = $(this).attr('href');-->
+
+    <!--//id가 view의 img를 변경할때 에니메이션을 주자-->
+
+    <!--$('#view').fadeOut('slow', function () {-->
+    <!--//새로갱신된 그림을 설정.-->
+    <!--$('#view img').attr('src', href);-->
+    <!--$(this).fadeIn(300);-->
+
+    <!--});-->
+
+    <!--//a요소 href 속성때문에 눌러봐야 창이 새로 떠서 뭘 볼수가없다.-->
+    <!--//이를 막아야하느니라..-->
+    <!--//click 이벤트를 a에게 전달하지않으면 됨.-->
+
+
+    <!--return false;-->
+
+
+    <!--});-->
+
+    <!--$('.item:eq(2)').on('click', function () {-->
+
+    <!--//클릭된 a요소의 그림값을 얻어오기-->
+    <!--var href = $(this).attr('href');-->
+
+    <!--//id가 view의 img를 변경할때 에니메이션을 주자-->
+
+    <!--$('#view').slideUp('slow', function () {-->
+    <!--//새로갱신된 그림을 설정.-->
+    <!--$('#view img').attr('src', href);-->
+    <!--$(this).slideDown(300);-->
+
+    <!--});-->
+
+    <!--//a요소 href 속성때문에 눌러봐야 창이 새로 떠서 뭘 볼수가없다.-->
+    <!--//이를 막아야하느니라..-->
+    <!--//click 이벤트를 a에게 전달하지않으면 됨.-->
+
+
+    <!--return false;-->
+
+
+    <!--});-->
+
+
+    <!--}-->
+    <!--);-->
+    <!--</script>-->
+
+    <!--같은 에니메이션을 한번에 해보자-->
+
+    <script>
+        $(document).ready(function () {
+
+            $('.item').each(function () {      //j쿼리의 포이치문같은것..
+                $(this).on('click', function () {
+                    var href = $(this).attr('href');
+
+                    //id가 view의 img를 변경할때 에니메이션을 주자
+
+                    $('#view').slideUp('slow', function () {
+                        //새로갱신된 그림을 설정.
+                        $('#view img').attr('src', href);
+                        $(this).slideDown(300);
+
+                    });
+
+                    //a요소 href 속성때문에 눌러봐야 창이 새로 떠서 뭘 볼수가없다.
+                    //이를 막아야하느니라..
+                    //click 이벤트를 a에게 전달하지않으면 됨.
+
+
+                    return false;
+                });
+            });
+        });
+    </script>
+
+
+    <style type="text/css">
+
+        #thumb {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            float: left;
+            width: 100px;
+        }
+
+        #thumb > li {
+
+            padding: 5px 10px;
+        }
+
+        #thumb img {
+            width: 80px;
+            height: 80px;
+        }
+
+        #view {
+
+            padding: 5px 0px;
+            width: 360px;
+            height: 270px; /* 80x3 + 10x3 */
+            float: left;
+        }
+
+        #view img {
+            width: 100%;
+            height: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<ul id="thumb">
+    <li>
+        <a href="slide_war.jpg" class="item">
+            <img src="slide_war.jpg">
+        </a>
+    </li>
+
+    <li>
+        <a href="slide_mehwa.jpg" class="item">
+            <img src="slide_mehwa.jpg">
+        </a>
+    </li>
+
+    <li>
+        <a href="slide_wizard.jpg" class="item">
+            <img src="slide_wizard.jpg">
+        </a>
+    </li>
+
+</ul>
+
+<div id="view">
+    <img src="slide_war.jpg" id="tg">
+</div>
+
+<?
+
+?>
+
+</body>
+</html>

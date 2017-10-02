@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        function Person(name, age) {
+
+            this.Name = name;
+            this.Age = age;
+
+
+        };
+
+        //Person 자료형에 하나만 존재하는 메소드가됨!
+        Person.prototype.show = function () {
+            document.write('Person - Name : ' + this.Name + " , Age : " + this.Age + '<br/>');
+        }
+
+        //사용법..
+
+        var p1 = new Person("AAA", 20);
+        var p2 = new Person("BBB", 25);
+
+        p1.show();
+        p2.show();
+
+
+        //프로토타입 메소드는 여러개추가 가능!!
+
+        Person.prototype.getName = function () {
+
+            return this.Name;
+        }
+
+        document.write("갯 네임 :" + p1.getName());
+        document.write("갯 네임 :" + p2.getName());
+
+
+        document.write("<hr/>");
+
+        document.write("<h4>클래스변수 </h4>");
+
+
+        //자바의 static 변수
+        Person.prototype.addr = "seoul";
+
+        document.write("갯 네임 :" + p1.addr);
+        document.write("갯 네임 :" + p2.addr);
+
+        document.write('<br/>');
+        //클래스 변수값 변경
+
+        p2.addr = 'busan'; //프로토타입 변수를 변경한것이 아님.. (속성을추가한것일뿐)
+
+        document.write('<br/>');
+
+        document.write("갯 네임 :" + p1.addr);
+        document.write("갯 네임 :" + p2.addr);
+        document.write('<br/>');
+
+        document.write(p2.toString());
+
+        //overiding..
+        document.write('<br/>');
+        p2.toString = function () {
+            return 'Person - Name : ' + this.Name + " , Age : " + this.Age + '<br/>';
+
+        }
+
+        document.write(p2);
+
+
+        //특이점.. 객체에 지역변수를넣는것.. 주의!!!!!!!!!!!!
+
+
+        document.write("<hr/>");
+
+        document.write("<h4>생성자 함수 , 객체 지역 변수 </h4>");
+
+        function Car(model, color) {
+
+            this.Model = model;
+            this.Color = color;
+            var name = "kkk"; //멤머변수가아니라 그냥 지역변수를 만든거임..
+
+        };
+
+        var car = new Car("aaa", "RED");
+
+        document.write(car.Model + " , " + car.Color);
+        document.write(car.name);
+
+
+        //프로토타입의 리터럴 객체를 넣을수도있다..
+
+
+        function Hello() {
+            this.a = 10;
+            this.b = 20;
+
+        }
+
+        //일종의 상속..
+
+        Hello.prototype = {
+            name: "aa",
+            age: 20
+        };
+
+        var h = new Hello();
+
+        document.write('<br/>');
+        document.write(h.a , h.b , h.name ,h.age);
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

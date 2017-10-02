@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<h3 id="target"></h3>
+	<button onclick="aaa()">button</button>
+	<button onclick="bbb()">button</button>
+	<script type="text/javascript">
+		//json 문자열
+		var s= '{"name":"sam", "age":20}';
+		//var obj= { name:"aaa", age:20};//JS 객체표기법
+
+		function aaa(){
+			var person= JSON.parse( s ); //json객체 리턴.
+			//var person= eval( "("+s+")" );
+
+			document.getElementById('target').innerHTML= person.name + " , "+ person.age; 
+		}
+
+		//Json 배열..
+		var strs='['+
+		           '{"name":"sam", "age":20},'+
+		           '{"name":"robin", "age":23},'+
+		           '{"name":"lee", "age":25}'+
+		']';
+
+		function bbb(){
+			var persons= JSON.parse(strs);
+
+			var str="";
+			for(var i=0; i<persons.length; i++){
+				str += persons[i].name+" , ";
+				str += persons[i].age+"<br/>";
+			}
+
+			document.getElementById('target').innerHTML= str;
+
+		}
+
+
+
+
+
+	</script>
+
+</body>
+</html>

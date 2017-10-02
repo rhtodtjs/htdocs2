@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        function cal() {
+            var in1 = document.getElementById('in1');
+            var in2 = document.getElementById('in2');
+
+            var a = in1.value;
+
+            var b = in2.value;
+
+            var c = parseInt(a) + parseInt(b);
+            var result = document.getElementById('result').value = c;
+
+
+        }
+
+        function colorset() {
+
+//            var e = document.getElementById('aa');
+//            e.style.color = "red";
+//            e.style.backgroundColor = "blue";
+//            e.style.border = "2px solid gold";
+
+            //id가아닌 tag이름으로 요소 찾기..
+
+            var es = document.getElementsByTagName('h2');
+            es[0].style.color = "white";
+
+        }
+
+        function computer1() {
+
+            alert("시발");
+            var e = document.getElementsByName('computer');
+            e[0].src = "../example/images/notebook.png"
+
+        }
+
+    </script>
+</head>
+<body>
+
+
+<input type="text" name="" id="in1" placeholder="힌트">
+<br/>
+<input type="text" name="" id="in2" placeholder="힌트">
+<br/>
+<input type="button" name="" value="버튼" onclick="cal()"/>
+
+<br/>
+<input type="text" id="result" size="20" readonly>
+
+
+<hr/>
+<h2 id="aa" style="color: red;background-color: yellow">This is Heading</h2>
+<button onclick="colorset()">change color</button>
+
+<hr/>
+
+<img src="../example/images/computer.png" name="computer" width="40%">
+<button onclick="computer1()">change image</button>
+
+
+<hr/>
+
+<!--특이한 스크립트문은 body안에 html과 섞여서 사용이 가능하다-->
+
+<table border="1" style="text-align: center;">
+
+    <tr>
+        <td>시부랄</td>
+    </tr>
+
+    <script type="text/javascript">
+        for (var i = 0; i < 10; i++) {
+            document.write('<tr><td>' + i + '</tr></td>');
+        }
+    </script>
+
+
+</table>
+
+<!--제어문 foreach문의 역할과 비슷한 방식.. [in]..-->
+<!--객체의 속성값들을 (멤버변수)반복문으로 출력하기-->
+
+
+<button onclick="display1()">포이치</button>
+
+<script>
+    function display1() {
+
+        var student = {Name: "김밥", Age: 26, Major: "Android"};
+
+
+        //객체의 멤버변수(속성명 프로퍼티를 차례대로 찾아오자)
+        for (var k in student) {
+
+            alert(k + " : " + student[k]);
+
+        }
+
+    }
+</script>
+
+</body>
+</html>

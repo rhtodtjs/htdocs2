@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        //배열의 2가지 생ㅊ성 방법..
+
+        //1. 리터럴 배열
+
+        var arr1 = [10, 20, 30];
+
+        document.write(arr1[0] + "<br/>");
+        document.write(arr1[1] + "<br/>");
+        document.write(arr1[2] + "<br/>");
+
+
+        //자바스크립트는 동적 자료형이기에 하나의 배열에 ㅇ
+        //여려 자료형의 요소들이 저장 가능
+
+        var arr2 = [10, "aa", true, new Date()];
+
+        document.write(arr2[0] + "<br/>");
+        document.write(arr2[1] + "<br/>");
+        document.write(arr2[2] + "<br/>");
+        document.write(arr2[3] + "<br/>");
+
+        //배열의 없는 인덱스를 불러도 에러는없다 undefined가나오겠지..
+
+        document.write(arr2.length);
+
+        //배열의 길이값도 조절 가능..
+
+        arr1[8] = 100;
+        document.write(arr1.length);
+
+
+        //배열의 참조변수를 스면 내용을 다 콤마로 찍어보여줌
+
+        document.write(arr1);
+
+        document.write("<hr/>");
+
+
+        //2. Array객체로 생성..
+
+        var arr3 = new Array(10, "sam", 3.14);
+
+        for (var i = 0; i < arr3.length; i++) {
+            document.write(arr3[i] + "<br/>");
+        }
+
+        for (var i in arr3) {
+            document.write(arr3[i] + "<br/>");
+        }
+
+        //배열 객체를 먼저 만들고 나중에 요소를 추가해도됌
+
+        var arr4 = new Array();
+
+        arr4[0] = "apple";
+        arr4[1] = 20;
+        arr4[2] = 12312312902;
+        arr4[3] = function () {
+            alert('aa');
+        }
+
+        for (var i in arr4) {
+            if (i == 3) {
+                arr4[3]();
+            }
+            document.write(arr4[i] + "<br/>");
+        }
+
+        //연관 배열
+
+        //인덱스에 숫자대신 키 값을 씀..
+
+        var arr5 = new Array();
+        arr5['aa'] = 10;
+        arr5['bb'] = 20;
+        arr5['cc'] = 30;
+
+
+        // 이 연관 배열은 form태그안에있는 input 요소들을 제어할때 매우 효과적..
+
+
+    </script>
+</head>
+<body>
+
+<hr/>
+
+<form name="aa">
+    <input type="text" name="01"><br/>
+    <input type="text" name="02"><br/>
+    <input type="text" name="03"><br/>
+
+</form>
+
+<script>
+
+    document.forms[0][0].value = 10;
+    document.forms['aa'][1].value = 20;
+    document.forms['aa']['03'].value = 30;
+
+    document.aa['01'].value = 96;
+
+
+</script>
+
+
+</body>
+</html>

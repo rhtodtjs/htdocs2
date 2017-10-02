@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript">
+
+        function getTest() {
+            //XMLHttpRequest객체 생성..ajax기술..
+            var req = new XMLHttpRequest();
+
+            //요청에 대한 응답콜백함수 지정..
+            req.onreadystatechange = function () {
+                //서버로부터 응답 받을 준비가 되었다는 신호 확인
+                if (req.readyState == 4) {
+                    //서버의 응답코드를 확인.
+                    if (req.status == 200) {
+
+                        //결과 받기..
+                        var result = req.responseText;
+
+                        document.getElementById('ta').innerHTML = result;
+
+                    }
+                }
+
+            };
+
+
+            //서버와 스트림연결..
+            req.open('GET', 'JQuery.html'); //true:비동기식
+
+            //요청시작.
+            req.send();
+
+
+        }
+
+        function postTest() {
+
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = function () {
+
+                if (req.readyState == 4 && req.status == 200) {
+                    document.getElementById('ta').innerHTML = req.responseText;
+                }
+            };
+
+            req.open('POST', 'postTest.php', true);
+            req.setRequestHeader('Content-type', 'application/' +
+                'x-www-form-urlencoded');
+            req.send('name=Robin&pw=123456'); //POST 방식은 보낼데이터를 여기에쓰라
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+<p>
+    <button onclick="getTest()">GET</button>
+    <button onclick="postTest()">POST</button>
+</p>
+
+<textarea id="ta" rows="10" cols="40"></textarea>
+
+</body>
+</html>

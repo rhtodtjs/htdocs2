@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        var x = 0;
+        var y = 0;
+
+        var dx = 2;
+        var dy = 2;
+
+        function draw() {
+
+
+            //도화지..
+            var canvas = document.getElementById('myCanvas');
+
+            //화가객체년..
+            var context = canvas.getContext("2d");
+
+//            context.fillStyle = "white"
+//            context.fillRect(800, 800, 800, 800); //너비 100 h:40
+
+
+            //글씨스타일
+
+            context.fillStyle = "red";
+            context.font = "bold 20px cursive";
+
+            //화가년아 글씨좀 써보라..
+            x += dx;
+            y += dy;
+            context.fillText("씨팔년아", x, y);
+            context.fillText("씨빨년아", x, y);
+
+            //윤곽선글씨
+            context.strokeStyle = "blue";
+            context.strokeText("Hello", 100, 40);
+
+
+            //사각형 그리기..
+
+            context.fillStyle = "green";
+            context.fillRect(10, 50, 100, 40); //너비 100 h:40
+
+
+            //직선 그리기..
+
+            context.beginPath();
+            context.moveTo(10, 100)
+            context.lineTo(100, 150);
+            context.lineTo(150, 120);
+            context.stroke();
+
+
+            // setInterval(draw, 50);
+
+            //나머진 책보고하자..
+
+            var img = new Image();
+
+            img.src = "ms19.png";
+
+
+            img.onload = function () {
+                context.drawImage(img, 400, 320);
+                //이미지를 원하는 크기로 그리기..
+                context.drawImage(img, 350, 270, 100, 100); //100,100은 그림의 사이즈..
+
+                //원본이미지에서 원하는 영역만 오려내서 글기.
+                context.drawImage(img, 100, 100, 200, 50, 350, 270, 200, 50);
+            }
+
+
+            var img2 = new Image();
+            img2.src = "ms21.png";
+            img2.onload = function () {
+                context.drawImage(img2, 150, 0, 150, 150);
+            }
+
+
+        }
+
+    </script>
+
+
+</head>
+<body onload="draw()">
+
+<canvas id="myCanvas" width="800" height="640" style="border: 1px solid black"></canvas>
+
+</body>
+</html>

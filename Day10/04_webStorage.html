@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+
+<h3 id="aa"></h3>
+<hr/>
+<h3 id="bb"></h3>
+
+<script>
+    //웹 스토리지 : 웹문서가 데이터를 client의 컴퓨터에 저장하고자할때
+    //사용하는 기법 (쿠키의 일종이지만) 5mb까지 가능
+
+    //웹스토리지 의 2가지 기법.
+
+    //1. LocalStorage : 영구적 저장..같은 도메인은 같은 저장소에 저장(도메인에따라달라짐)
+    //예제 ) 페이지 방문횟수..
+    if (!localStorage.cnt) { //localstorage에 cnt라는 변수가 없니?
+
+        localStorage.cnt = 0;
+    }
+
+    //기존의 cnt에 값을 1 증가.
+    localStorage.cnt = parseInt(localStorage.cnt) + 1;
+
+    document.getElementById('aa').innerHTML = localStorage.cnt + "번째 방문입니다.";
+
+
+    //2. sessionStorage 브라우저가 켜저있을때만 저장..
+
+    if (!sessionStorage.cnt) sessionStorage.cnt = 0;
+
+    sessionStorage.cnt = parseInt(sessionStorage.cnt) + 1;
+
+    document.getElementById('bb').innerHTML = sessionStorage.cnt + "번째 방문데스";
+
+</script>
+
+<hr/>
+
+<h2>웹 저장소로 로그인 정보 기억하기</h2>
+
+<label>로그인 : <input type="text" name="" id="in_id"></label><br/>
+<label>비번 : <input type="password" name="" id="in_pw"></label><br/>
+<label><input type="checkbox" id="cb1">아이디 저장</label><br/>
+<input type="button" value="로그인" onclick="login()">
+
+<script>
+    //로그인 버튼을 눌렀을때
+
+    function login() {
+
+        var id = document.getElementById('in_id').value;
+        var pw = document.getElementById('in_pw').value;
+
+        //아이디 저장 여부를 체크..
+        if (document.getElementById('cb1').checked) {
+            alert("아이디를 저장하시겠습니까?");
+            //local저장소
+
+            localStorage.setItem("id", id);
+            localStorage.setItem("pw", pw);
+            localStorage.setItem("cb1", true);
+
+            //세션에저장된 값은 모두 삭제..
+            sessionStorage.clear();
+        } else {
+            //브라우저 살아있을때 까지 저장.. Session저장소
+            sessionStorage.setItem("id", id);
+            sessionStorage.setItem("pw", pw);
+            sessionStorage.setItem("cb1", false);
+            //로컬에저장된거 삭제.
+
+            alert("세션저장");
+
+            localStorage.clear();
+        }
+
+        alert(id + pw);
+
+    }
+
+    //저장소에 저장된 데이터 읽어오기.
+    function loadLoginInfo() {
+
+        //로컬 저장소에 저장된 데이터가 없다면
+
+        alert(sessionStorage.getItem("id"));
+
+        if (localStorage.length == 1) {//로컬 저장소를 쓴적이 없다면
+
+            //세션 저장소의 값 읽어오기.
+            if (sessionStorage.length != 0) {
+
+
+                if (sessionStorage.getItem("id")) { //id가있다면
+
+                    document.getElementById("in_id").value = sessionStorage.getItem("id");
+
+                }
+
+                if (sessionStorage.getItem("pw")) { //pw가있다면 0이아니면 다 참이기에.
+
+                    document.getElementById("in_pw").value = sessionStorage.getItem("pw");
+
+                }
+
+            }
+        } else {
+            //로컬저장소를 쓴적이 있구나!!
+
+            if (localStorage.getItem("id")) { //id가있다면
+
+                document.getElementById("in_id").value = localStorage.getItem("id");
+
+            }
+
+            if (localStorage.getItem("pw")) { //pw가있다면 0이아니면 다 참이기에.
+
+                document.getElementById("in_pw").value = localStorage.getItem("pw");
+
+            }
+
+            if (localStorage.getItem("cb1")) { //pw가있다면 0이아니면 다 참이기에.
+
+                document.getElementById("cb1").checked = localStorage.getItem("cb1");
+
+            }
+        }
+    }
+
+    loadLoginInfo();
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function keypress() {
+            var s = "키 다운";
+
+//            s += event + "\n";
+//            s +=  event.keyCode+ "\n";
+//            s += String.fromCharCode(event.keyCode) + "\n";
+//            s += event.altKey + "\n";
+//            s += event.ctrlKey + "\n";
+//            s += event.shiftKey + "\n";
+
+
+            //alert(s);
+
+            var keycode = event.keyCode;
+
+
+            if ((event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116)) {
+                event.keyCode = 0;
+                event.cancelBubble = true;
+                event.returnValue = false;
+            }
+
+
+            var d = document.getElementById('in1').value = String.fromCharCode(event.keyCode);
+            var d = document.getElementById('in2').value = keycode;
+            var d = document.getElementById('in3').checked = event.altKey;
+            var d = document.getElementById('in4').checked = event.ctrlKey;
+            var d = document.getElementById('in5').checked = event.shiftKey;
+        }
+
+    </script>
+
+</head>
+<body onkeypress="keypress()">
+
+char : <input type="text" id="in1" name=""><br/>
+KeyCode : <input type="text" id="in2" name=""><br/>
+Alt키 : <input type="checkbox" id="in3" name=""><br/>
+Ctrl키 : <input type="checkbox" id="in4" name=""><br/>
+Shift키 : <input type="checkbox" id="in5" name=""><br/>
+
+<hr/>
+
+<input type="text" name="" onkeypress="aaa() ">
+
+<script>
+
+    function aaa() {
+        alert(this);
+    }
+</script>
+
+
+<input type="text" name="" id="in6">
+
+<script>
+    document.getElementById('in6').addEventListener('keypress' , function () {
+
+        alert(this);
+    });
+</script>
+
+</body>
+</html>

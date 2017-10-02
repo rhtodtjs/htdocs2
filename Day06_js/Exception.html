@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+
+        alert("시작");
+
+        try {
+            alert("AAA"); //에러가 발생하면 아랫줄이 진행안댐..
+
+        } catch (e) {
+
+            document.write(e.toString());
+        } finally {
+            alert("호오오미");
+        }
+
+        alert("끝");
+
+
+        //에러가아니지만 의도치않는 결과가나오면 에러로 처리하기..
+
+        try {
+            var a = 10, b = 20;
+            c = a - b;
+
+            if (c < 0) throw"음수결과는 좆같습ㄴ디ㅏ";
+
+            document.write(c + "<br/>");
+        } catch (e) {
+            document.write(e.toString() + "<br/>");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

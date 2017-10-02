@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <SCRIPT>
+
+        function Car(model, speed, color) {
+            this.Model = model;
+            this.speed = speed;
+            this.color = color;
+            this.brake = function () {
+                this.speed -= 10;
+            }
+            this.accel = function () {
+                this.speed += 10;
+            }
+
+            this.show = function () {
+
+                document.write("모델명 : " + this.Model + "최속 : " + this.speed + "색상 : " + this.color);
+            }
+        }
+
+        var car = new Car("bmw 520d", 160, "White");
+        car.show();
+
+        document.write('<br/>');
+
+        car.accel();
+        document.write(car.speed);
+        document.write('<br/>');
+
+        car.accel();
+        document.write(car.speed);
+        document.write('<br/>');
+
+
+
+    </SCRIPT>
+</head>
+<body>
+
+</body>
+</html>

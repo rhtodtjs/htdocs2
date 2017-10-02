@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" name="" id="in1">
+
+<button onclick="reg(this)">유효성 검사 (정규 표현식 Regular Expression)</button>
+
+<p id="pp" style="color: red"></p>
+
+<script>
+
+    function reg(e) {
+        var p = e.nextElementSibling;
+
+        var regRxp = /^[a-zA-Z]+$/;//정규표현식 객체..
+
+        //사용자가 입력한 글시를 얻어오장.
+        var t = e.previousElementSibling.value;
+
+        //정규표현식 검증하는 2가지 방법..
+        //1번째 String 객체의 match메소드 방식
+//        if (t.match(regRxp)) p.textContent = "OK";
+//        else p.textContent = "NO!";
+
+        regRxp = /a/; //a가 포함되는 모든 글씨
+        regRxp = /ab/; //ab가 포함되는 모든
+        regRxp = /^a/; //시작문자가 a여야가능..
+        regRxp = /^[a-z]/; //시작문자가 소문자여야해
+        regRxp = /a$/; // 끝문자가 무조건 a여야해
+        regRxp = /^a$/; // 오로지 a 한글자만 가능
+        regRxp = /^[a-z]$/; // 오로지 a~z 문자 '한개' 만 가능.
+
+        regRxp = /^[a-zA-z]$/; //영어 문자 한개..
+        regRxp = /^[a-zA-z0-9]$/; //영어 문자거나 숫자 한개
+
+        regRxp = /^[a-z]{2}$/; //소문자 2개 만 가능..
+
+        regRxp = /^[a-z]{2,4}/; //소문자 2~4개만 가능..
+
+        regRxp = /^[a-z]*$/; //소문자가 0~무한대 가능..
+        regRxp = /^[a-z]?$/; //소문자가 0개 또는 1개..
+
+        regRxp = /^[0-9]$/;//숫자 1개..
+        regRxp = /^\d$/; //숫자 1개..
+
+        regRxp = /^\d\d\d$/; //숫자 3개..
+
+        regRxp = /^\d\dk\d\dk\d\d$/; //숫자 ##k##k## 이뜻..
+
+        regRxp = /^[a-zA-z0-9]+.[a-zA-z0-9]+.[a-zA-z]+$/;
+
+        // / <--이글자검증..
+        //regRxp = /^\/$/;
+
+        //2번째 방법 RegExp객체의 방법.
+        if (regRxp.test(t)) p.textContent = "OK";
+        else p.textContent = "NO!";
+
+    }
+</script>
+
+</body>
+</html>
