@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--보안상의 문제로 파일리더는 사용자가 선택한 파일만 읽을수있다-->
+
+<input type="file" id="in1"><br/>
+<button onclick="readFile()">파일 업로드</button>
+<br/>
+<textarea id="ta" rows="10" cols="30"></textarea>
+
+<script>
+    function readFile() {
+
+        //선택된 파일의 경로 읽어오기 value는 가짜 경로를줌.
+        var f = document.getElementById('in1').value;
+        //alert(f);
+
+        //files 속성은 선택된 파일들의 정보를 받아오는거라 무조건 배열객체로 리턴됨.
+        var files = document.getElementById('in1').files;
+        //files는 File객체의 배열
+
+        for (var i = 0; i < files.length; i++) {
+            alert(files[i].name + "\n" + files[i].size + "\n" + files[i].type);
+        }
+
+        //파일리더 객체 생성..
+
+        var fr = new FileReader();
+        //읽기작업이 종료되면 실행할 메소드 ..
+        fr.onload = function () {
+          document.getElementById('ta').innerHTML = fr.result;
+        };
+
+        //파일리더에게 문서를 읽기 요청..
+        //fr.readAsText(files[0] , "euc-kr"); //
+
+        fr.readAsBinaryString(files[0]); //이미지나 동영상등을 읽을때 2진수로..
+
+
+    }
+</script>
+</body>
+</html>

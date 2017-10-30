@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //문서가 로드되면 자동 실행 콜백함수
+
+        window.onload = function () {
+            //SSE(Server Sent Event) - 서버가 원할때 이벤트를 푸시..
+            //반대개념을 polling (ex : ajax , http통신)
+
+            //웹페이지의 내용 구성을 새로고침없이 일정 간격으로
+            //자동 갱신
+
+            //서버로부터 push서비스 받기
+            //이벤트소스 객체.
+
+            var es = new EventSource('08_push.php?id=SAM&msg=hello');
+
+            es.onmessage = function (evt) {
+                document.getElementById('aa').innerHTML += "<br/>" + evt.data + "<br/>";
+                document.getElementById('aa').innerHTML += "<br/>" + evt.lastEventId + "<br/>";
+            }
+        }
+
+        function send() {
+
+            //기존의 이벤트 서버 닫기..
+            es.close();
+
+            var msg = document.getElementById('in1').value;
+
+            var es1 = new EventSource('08_push.php?id=Robin&msg=' + msg);
+
+            es1.onmessage = function (evt) {
+                document.getElementById('aa').innerHTML += "<br/>" + evt.data + "<br/>";
+                document.getElementById('aa').innerHTML += "<br/>" + evt.lastEventId + "<br/>";
+
+            }
+
+
+
+        }
+    </script>
+</head>
+<body>
+
+<input type="text" id="in1">
+<button onclick="send()">SEND</button>
+
+<h6 id="aa">서버로부터 받은 메세지</h6>
+
+</body>
+</html>

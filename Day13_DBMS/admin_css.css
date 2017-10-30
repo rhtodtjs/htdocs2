@@ -1,0 +1,200 @@
+* {
+margin:0px;
+}
+img{border:0px; cursor:pointer;}
+html{
+width:100%;
+height:100%;
+padding:0px 0 0px 0;
+}
+
+body{
+padding:0px;
+margin:auto auto;
+background:url('images/bg.gif');
+font-family: Tahoma, MS Sans Serif,Angsana New, CordiaUPC,AngsanaUPC; font-size: 10pt;
+}
+
+A {TEXT-DECORATION: none; white-space:nowrap; }
+A:link { COLOR: #535763; TEXT-DECORATION: none; }
+
+/* ------------------------------------------------ body main -------------------------------------------------- */
+#body_main {
+width: 1000px;
+margin: auto;
+background-color: #FFFFFF;
+}
+/* ------------------------------------------------- head ------------------------------------------------- */
+
+#top_menu {
+width: 770px;
+top: 30px;
+left: 230px;
+color: black;
+position:relative;
+text-decoration:none; 
+font-size:12px; 
+font-weight:bold; 
+cursor:pointer;
+letter-spacing: 1px;
+}
+#top_menu span {
+padding-left: 15px;
+}
+#top_menu a {
+color: black;
+}
+
+#head {
+width: 1000px;
+height: 180px;
+margin: auto;
+background: url('images/darkeden.png');
+}
+/* ---------------------------------------------------------- welcome ---------------------------------------- */
+#welcome 
+{
+height: 20px;
+color: #FFFFFF;
+background-color: #000000;
+text-align: right;
+position:relative;
+top: 144px;
+filter:alpha(opacity=40); 
+-moz-opacity: 0.4; 
+opacity: 0.4; 
+}
+#welcome span {
+position:relative;
+top: 1px;
+padding-right: 10px;
+font-size: 9pt;
+}
+
+/* ---------------------------------------------------------- left_box ---------------------------------------- */
+
+#left_box {
+float: left;
+position: relative;
+display: inline;
+width: 200px;
+background-color: #FFFFFF;
+}
+/* ----------------------------------------------------- data_box --------------------------------------------- */
+
+/* -------------------------------------------------- footer ------------------------------------------------ */
+#foot_menu {
+margin: auto;
+text-align: center;
+text-decoration:none; 
+font-size:12px; 
+
+cursor:pointer;
+color: #FFFFFF;
+top: 5px;
+}
+
+#footer {
+clear: both;
+width: 1000px;
+height: 70px;
+margin: auto;
+background-color: #BDD0F0;
+}
+#footer_box_in {
+color: #333333;
+font-size: 10pt;
+padding: 10 10 10 10;
+}
+/* ---------------------------------------------------- menu_left ---------------------------------------------- */
+#menu_left {
+float: left;
+display: inline;
+width: 100%;
+background-color: #FFFFFF;
+}
+
+#menu_left h1 {
+padding: 2 2 4 5;
+color: #B4FBFF;
+font-weight: bold;
+font-size: 10pt;
+background: url('images/tb_head_screen2.gif') repeat-x;
+border-bottom: 1px dotted #333333;
+}
+
+#menu_left li {
+color: black;
+list-style: none;
+margin: 0;
+padding: 0 0 0 5;
+border-bottom: 1px dotted #333333;
+}
+
+#menu_left li a {
+display: block;
+color: black;
+text-decoration: none;
+padding: 2 2 4 14;
+}
+
+#menu_left li a:hover {
+color: #CC0000;
+background-color: #EAEAEA;
+}
+
+/* ------------------------------------------------- popup ------------------------------------------------- */
+
+/*  ------------ INPUT -----------------------*/
+INPUT.back{
+	font-family: MS Sans Serif, sans-serif; 
+	BORDER-RIGHT: #666666 1px solid; 
+	BORDER-TOP: #666666 1px solid; 
+	FONT-SIZE: 10pt; 
+	BACKGROUND: #FFFFFF; 
+	BORDER-LEFT: #666666 1px solid; 
+	COLOR: black; 
+	BORDER-BOTTOM: #666666 1px solid;
+}
+/* ---------------------------------- login box --------------------------*/
+#login_box {
+height: 70px;
+}
+
+#login_button {
+width: 61px;
+height: 41px;
+position: absolute;
+top: 5px;
+left: 140px;
+}
+
+.new_reg  {
+color: #666600;
+font-weight: bold;
+font-size: 9pt;
+position: absolute;
+top: 50px;
+padding-left: 35px;
+}
+.new_reg a {
+color: #3399FF;
+}
+.new_reg a:hover {
+color: #33FF00;
+}
+/*.new_reg a:visited {
+color: #3399FF;
+}*/
+
+/*  ------------ logout -----------------------*/
+#logout {
+width: 61px;
+height: 41px;
+position: absolute;
+top: -95px;
+left: 1px;
+z-index: 100;
+}
+
+/* --------------------------------------------- TABLE ----------------------------------------------------- */

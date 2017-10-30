@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-3.2.1.min.js"></script>
+
+    <script>
+
+        // 아이디 체크 정규식
+        var regExpId = /^[a-z0-9_-]\w{5,20}$/;
+        // 비밀번호 길이 체크 정규식
+        var regExpPassword = /^\w[6,16]$/;
+        // 비밀번호 조합(영문, 숫자) 및 길이 체크 정규식
+        var regExpPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,16}$/;
+        // 이메일 체크 정규식
+        var regExpEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+        // 휴대폰번호 정규식
+        var regExpMobile = /^01([016789]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+        // 숫자만 사용 정규식
+        var regExpNumber = /^\d+$/;
+        // 한글 정규식
+        var regKorean = /^[ㄱ-ㅎ가-힣]+$/;
+
+
+        $(function () {
+            $('#done').on('click', function () {
+//                    alert("sss");
+
+                    if ($("#id").val() == "") {
+                        $('#chk_id').text("");
+                        $('#chk_id').html("아이디를 입력하세요");
+                        $("#id").focus();
+                        return false;
+                    } else if (regExpId.test($("#id").val()) != true) {
+                        $('#chk_id').text("");
+                        $('#chk_id').html("아이디 형식에 맞지 않습니다.");
+                        $("#id").focus();
+                        return false;
+                    } else if ($("#name").val() == "") {
+                        $('#chk_name').text("");
+                        $('#chk_name').html("이름을 입력하세요.");
+                        $("#name").focus();
+                        return false;
+                    }
+
+                    alert("가입완료");
+                    $("form").attr("action", "register_do.php");
+                    $("form").submit();
+
+                }
+            )
+
+            $(document).ready(function () {
+                $('#id').keyup(function () {
+                    console.log("키입력");
+                    $.ajax({
+                        type: "POST",
+                        url: "http://ec2-13-124-92-145.ap-northeast-2.compute.amazonaws.com/check_id.php",
+                        data: { id: $("#id").val() },
+                        dataType: "json",
+                        success: function(data){
+                            if(data.err) alert(data.err);
+                            if(data.success) {
+                                alert(data.success);
+                            }
+                        },
+                        error: function(){ console.log("데이터 전송 실패"); }
+                    });
+                })
+
+
+            });
+
+        });
+
+
+    </script>
+
+    <style>
+
+        span {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--<form method="post"> &lt;!&ndash;actiregister_do.php" &ndash;&gt;-->
+
+<fieldset>
+    <legend>회원 가입</legend>
+
+    <table border="0">
+
+        <tr>
+            <th>아이디</th>
+            <td><input type="text" id="id" name="id" placeholder="영문,숫자 계정명 (5~20)">
+            </td>
+            <td>
+                <span id="chk_id"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td><input type="text" required id="name" name="name" placeholder="이름"> <span id="chk_name"></span></td>
+        </tr>
+        <tr>
+            <th>연락처</th>
+            <td><input type="tel" required id="number" name="number" placeholder="연락처"></td>
+        </tr>
+        <tr>
+            <th>비밀번호</th>
+            <td><input type="password" required id="pw1" name="pw" placeholder="사용하실 비밀번호 입력"></td>
+        </tr>
+        <tr>
+            <th>비밀번호 확인</th>
+            <td><input type="password" required id="pw2" name="pw" placeholder="사용하실 비밀번호 재확인"></td>
+        </tr>
+
+        <!--todo 제이쿼리로 비번일치 검사 아이디중복검사 유효성 검사 등등 해라-->
+    </table>
+
+    <div id="resultDIV"><font color='red'></font></div>
+
+    <hr/>
+    <button id="done">가입</button>
+
+</fieldset>
+
+<!--</form>-->
+
+</body>
+</html>

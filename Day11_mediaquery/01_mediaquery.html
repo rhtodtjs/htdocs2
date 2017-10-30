@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--/*미디어 쿼리 :: 반응형 웹을 위한 CSS 선택 적용..*/-->
+
+    <!--방법 1 . @media 키워드 이용-->
+    <style>
+
+        #aa {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+        /*화면의 너비가 최소 480px 이상일 때 적용 하고싶다.
+        작성순서는 작은화면 -> 큰화면 */
+        @media (min-width: 480px) {
+            #aa {
+
+                width: 480px;
+                height: 200px;
+                background-color: yellow;
+            }
+        }
+
+
+    </style>
+
+    <!--방법 2. media 속성 이용-->
+    <!--600~800사이의 사이즈..-->
+
+    <link rel="stylesheet" type="text/css" href="01_mediaquery.css" media="(min-width:600px) and (max-width:800px)">
+
+    <style media="(min-width:800px)">
+        #aa {
+
+            border: 1px solid red;
+            width: 480px;
+            height: 200px;
+            background-color: #ececec;
+        }
+    </style>
+</head>
+<body>
+
+<div id="aa"></div>
+</body>
+</html>

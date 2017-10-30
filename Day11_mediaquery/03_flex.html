@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        /*<!-- 3개의 영역을 2:6:2 로 배치하고자 할때
+        float을 쓰면 다른 요소에게도 영향이 될 수 있음.-->*/
+
+        /*3개영역을 감싸는 부모요소에 한번에 적용시키는 float같은 느낌*/
+
+        html, body {
+            height: 100%;
+        }
+
+        #main {
+            display: flex;
+            height: 100%;
+        }
+
+        .left-side {
+            width: 20%;
+            background-color: lightgreen;
+        }
+
+        .content {
+            width: 60%;
+            background-color: skyblue;
+            overflow: hidden;
+        }
+
+        .content img {
+            width: 300px;
+        }
+
+        .right-side {
+            width: 20%;
+            background-color: gold;
+        }
+
+        .clear {
+            clear: both;
+
+        }
+
+        @media screen and (max-width: 480px) {
+
+            #main {
+                display: block;
+
+            }
+
+            .left-side, .right-side, .content {
+                width: 100%
+            }
+
+            .content img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="main">
+    <nav class="left-side">
+        aaa
+    </nav>
+
+    <section class="content">
+        <article>
+            <img src="../img/ICON.png">
+            <p>기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사?
+                인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사? 인간성기사기사? 기사?
+                인간성기사기사? 기사? 인간성기사</p>
+        </article>
+    </section>
+
+    <aside class="right-side">
+        bbb
+    </aside>
+
+    <div class="clear"></div>
+</div>
+</body>
+</html>

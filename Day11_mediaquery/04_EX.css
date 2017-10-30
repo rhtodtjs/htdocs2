@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0
+}
+
+h1 {
+    font-size: 90px;
+    font-family: 'Droid Serif', serif;
+    line-height: 75px;
+    padding: 10px;
+    transition-property: font-size;
+    transition-duration: 0.5s, 0.5s;
+    transition-timing: linear, ease-in;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #222;
+}
+
+h3 {
+    font-family: 'Droid Serif', serif;
+    font-size: 30px;
+}
+
+h4 {
+    font-family: 'Droid Serif', serif;
+    padding: 3px;
+    margin: 5px 0 0 0;
+}
+
+body {
+    background: #eeeeee;
+    color: #222;
+    font-family: 'Droid Serif', serif;
+    font-size: 16px;
+    min-width: 320px;
+}
+
+nav {
+    background-color: black;
+    padding: 0;
+    margin: 10px 0px;
+}
+
+nav a {
+    color: white;
+    display: block;
+    float: left;
+    padding: 10px;
+    text-decoration: none;
+}
+
+nav a:visited {
+    color: #f9f9f9;
+}
+
+nav a:hover {
+    text-decoration: none;
+    background-color: #27B3CF;
+}
+
+nav a:active {
+    position: relative;
+    top: 0;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#main-content {
+    padding: 20px 15px;
+}
+
+#featured a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+.left-col {
+    float: left;
+}
+
+.left-col p {
+    font-weight: bold;
+}
+
+.left-col a {
+    color: #004e7b;
+    font-size: 18px;
+}
+
+.sidebar {
+    float: left;
+    padding-left: 30px;
+
+}
+
+.sidebar ul li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.sidebar h4 > a {
+    font-weight: bold;
+    color: #004e7b;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #004e7b;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 740px) {
+
+    h1 {
+
+        font-size: 70px;
+
+    }
+
+    h2 {
+        font-size: 13px;
+    }
+
+    body {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .left-col {
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
+
