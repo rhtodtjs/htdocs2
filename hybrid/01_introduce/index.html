@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title> <!-- 웹앱에서는 무의미 -->
+
+    <!--JQuery Mobile 프레임워크 추가가-->
+
+    <!--방법 1 CDN-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!--저 순서에따라 작동이되는거라 조심하셈..-->
+
+
+    <!--방법2. 다운로드 방식-->
+
+    <!--<link href="jquery.mobile-1.4.5.min.css" rel="stylesheet">-->
+    <!--<script src="jquery.js"></script>-->
+    <!--<script src="jquery.mobile-1.4.5.min.js"></script>-->
+
+    <!--뷰표트 작업 // 모바일 화면의 길이로 설정.. 교제 4챕터 참고-->
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+
+
+</head>
+<body>
+
+<!-- 모바일 한 페이지 (액티비티 같은 느낌)-->
+
+<div data-role="page" id="page1"> <!-- 모바일 브라우저에서 액티비티 한장이다 라고 본다..-->
+
+    <!-- 헤더영역 (앱바같으거) -->
+    <div data-role="header">
+        <!--페이지 제목 헤더 사이즈는 숫자와 상관없이 통일 헤더에는 1~3-->
+        <h2>This is Header</h2>
+    </div>
+
+    <!-- 컨텐츠 영역 view-->
+    <div data-role="content">
+
+        <p>This is Content region.</p>
+        <a href="#page2" data-role="button" data-transition="slide">Go to Second Activity</a>
+    </div>
+
+    <!--푸터 영역-->
+    <div data-role="footer">
+        <!--h3~h6 중요도 같은느낌임..-->
+        <h4>This is footer</h4>
+    </div>
+</div>
+
+
+<!--두번째 액티비티-->
+<div data-role="page" id="page2">
+
+    <!-- 헤더영역 (앱바같으거) -->
+    <div data-role="header" data-theme="b">
+        <a href="#page1" data-theme="b">Back</a>
+
+        <!--페이지 제목 헤더 사이즈는 숫자와 상관없이 통일 헤더에는 1~3-->
+        <h2>This is Header 2 </h2>
+    </div>
+
+    <!-- 컨텐츠 영역 view-->
+    <div data-role="content">
+
+        <p>This is Content 2 region.</p>
+        <a href="#page1" data-role="button" data-transition="slide">Go to First Activity</a>
+        <a href="page3.html" data-role="button"  data-ajax="true" data-transition="slide">Go to Third Activity</a>
+
+
+    </div>
+
+    <!--푸터 영역-->
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <!--h3~h6 중요도 같은느낌임..-->
+        <h4>This is footer2</h4>
+    </div>
+
+</div>
+
+
+</body>
+</html>
